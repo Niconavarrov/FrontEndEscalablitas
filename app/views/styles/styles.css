@@ -35,3 +35,13 @@
     justify-content: center;
 
 }
+
+#CuadroSesion{
+    border: 2.5px solid black;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px;
+    border-radius: 5px;
+}
