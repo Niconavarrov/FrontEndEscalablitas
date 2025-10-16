@@ -45,3 +45,33 @@
     padding: 100px;
     border-radius: 5px;
 }
+
+#DivDerecha, #HomeDerecha{
+    padding: 20px;
+}
+
+#DivCalendario{
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    padding: 10px;
+}
+
+#Calendario{
+    width: 50%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+}
+
+#BtnServicios{
+    padding: 10px;
+    
+}
+

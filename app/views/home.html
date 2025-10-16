@@ -18,19 +18,14 @@
                 </li>
             </ul>
             <ul class="navbar-nav" id="sesion-navbar">
-                <li class="nav-item">
-                    <a class="nav-link" href="FAQs.html" style="color:white;">
-                        <i class="fa-solid fa-comments"></i> FAQs
+                <li class="nav-item">  
+                    <a class="nav-link" href="Cuenta.html" style="color:white;">
+                        <i class="fa-solid fa-user" style="color:white;"></i> Cuenta
                     </a>
                 </li>
                 <li class="nav-item">  
                     <a class="nav-link" href="InicioSesion.html" style="color:white;">
-                        <i class="fa-solid fa-user" style="color:white;"></i> Inciar Sesion
-                    </a>
-                </li>
-                <li class="nav-item">  
-                    <a class="nav-link" href="Registro.html" style="color:white;">
-                        <button class="btn btn-light" style="shape-margin: 10px;" id="registrarse">Registrarse</button>
+                        <button class="btn btn-light" style="shape-margin: 10px;" id="registrarse">Cerrar Sesion</button>
                         
                     </a>
                 </li>
@@ -38,6 +33,55 @@
         </div>
     </nav>
     <!-- FIN DEL NAVBAR PRINCIPAL -->
+
+    <!-- INICIO DE PANEL DE HOME -->
+     <space>  </space>
+    <div class="container" style="padding: 30px;">
+        <div class="row border" id="div-home">
+            
+            <!-- ZONA IZQUIERDA -->
+            <div class="col-sm-7 border" id="HomeDerecha">
+                <h1 id="homeTXT">Home</h1>
+                <div class="border" id="Buscador" style="padding: 20px;">
+                    
+                    <!-- BUSCADOR -->
+                    <input type="text" class="form-control" placeholder="Buscar servicios..." id="InputBuscador">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <br>
+                    
+                    <!-- BOTONES -->
+                    <div class="row border">
+                        <div class="col-sm" id="BtnServicios">
+                            <button class="btn btn-secondary">Plomeria</button>
+                        </div>
+                      <div class="col-sm" id="BtnServicios">
+                            <button class="btn btn-secondary">Carpinteria</button>
+                        </div>
+                        <div class="col-sm" id="BtnServicios">
+                            <button class="btn btn-secondary">Cerrajeria</button>
+                        </div>
+                        <div class="col-sm" id="BtnServicios">
+                            <button class="btn btn-secondary"> + </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ZONA DERECHA -->
+            <div class="col-sm-5 border" id="DivDerecha">
+                <h2>Proximas Citas</h2>
+                <div class="border" style="display: flex;" id="DivCalendario">
+                    <h4 style="text-align: center;">Calendario</h4>
+                    <img src="images/CalendarioDiosito.jpg" class="img-fluid rounded" alt="Mi imagen" id="Calendario">
+                </div>
+            </div>
+            
+
+        </div>
+    </div>
+    <!-- FIN DE PANEL DE HOME -->
+     
+
 
     <center><h1>Escalablitas APP</h1></center>
     <center><div class="container">
