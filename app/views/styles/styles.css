@@ -46,7 +46,7 @@
     border-radius: 5px;
 }
 
-#DivDerecha, #HomeDerecha{
+#DivDerecha, #HomeIzquierda{
     padding: 20px;
 }
 
@@ -71,7 +71,15 @@
 }
 
 #BtnServicios{
-    padding: 10px;
+    padding: 5px;
     
+}
+
+#DivBotones{
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
 }
 

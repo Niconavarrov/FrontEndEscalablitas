@@ -40,28 +40,52 @@
         <div class="row border" id="div-home">
             
             <!-- ZONA IZQUIERDA -->
-            <div class="col-sm-7 border" id="HomeDerecha">
+            <div class="col-sm-7 border" id="HomeIzquierda">
                 <h1 id="homeTXT">Home</h1>
                 <div class="border" id="Buscador" style="padding: 20px;">
                     
                     <!-- BUSCADOR -->
-                    <input type="text" class="form-control" placeholder="Buscar servicios..." id="InputBuscador">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <br>
+                     <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Buscar servicios..." id="InputBuscador">
+                        <button class="btn btn-outline-dark rounded"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        <br>
+                     </div>
+                    
                     
                     <!-- BOTONES -->
-                    <div class="row border">
+                    <div class="row border" id="DivBotones" style="margin-left: 1px; margin-right: 1px;">
                         <div class="col-sm" id="BtnServicios">
-                            <button class="btn btn-secondary">Plomeria</button>
+                            <button class="btn btn-secondary">Plomeros</button>
                         </div>
                       <div class="col-sm" id="BtnServicios">
-                            <button class="btn btn-secondary">Carpinteria</button>
+                            <button class="btn btn-secondary">Carpinteros</button>
                         </div>
                         <div class="col-sm" id="BtnServicios">
-                            <button class="btn btn-secondary">Cerrajeria</button>
+                            <button class="btn btn-secondary">Cerrajeros</button>
+                        </div>
+                        <div class="col-sm" id="BtnServicios">
+                            <button class="btn btn-secondary">Fontaneros</button>
                         </div>
                         <div class="col-sm" id="BtnServicios">
                             <button class="btn btn-secondary"> + </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DIV RECOMENDADOS -->
+                <div class="border rounded" style="margin-top: 2px;" >
+                    <h3 style="margin-left: 22px;">Recomendados</h3>
+                    <div class="row border" style="margin-left: 5px; margin-right: 5px; margin-bottom: 5px;">
+                        <div class="col-sm border rounded" style="margin-left: 6px; margin-right: 6px;">
+                            <img src="images/Plomero.jpg" class="img-fluid rounded" alt="Mi imagen">
+                        </div>
+                        <div class="col-sm border rounded" style="margin-left: 6px; margin-right: 6px;">
+                            <img src="images/Carpintero.jpg" class="img-fluid rounded" alt="Mi imagen">
+                            A
+                        </div>
+                        <div class="col-sm border rounded" style="margin-left: 6px; margin-right: 6px;">
+                            <img src="images/Cerrajero.jpg" class="img-fluid rounded" alt="Mi imagen">
+                            A
                         </div>
                     </div>
                 </div>
