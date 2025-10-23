@@ -83,3 +83,8 @@
     text-align: center;
 }
 
+#CenterDiv, #DivChat{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}

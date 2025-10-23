@@ -35,8 +35,7 @@
     <!-- FIN DEL NAVBAR PRINCIPAL -->
 
     <!-- INICIO DE PANEL DE HOME -->
-     <space>  </space>
-    <div class="container" style="padding: 30px;">
+    <div class="container" style="padding: 20px;">
         <div class="row border" id="div-home">
             
             <!-- ZONA IZQUIERDA -->
@@ -117,14 +116,33 @@
             </div>
 
             <!-- ZONA DERECHA -->
-            <div class="col-sm-5 border" id="DivDerecha">
+            <div class="col-sm border" id="DivDerecha" style="padding: 20px;">
                 <h2>Proximas Citas</h2>
                 <div class="border" style="display: flex; margin-bottom: 10px;" id="DivCalendario">
                     <h4 style="text-align: center;">Calendario</h4>
                     <img src="images/CalendarioDiosito.jpg" class="img-fluid rounded" alt="Mi imagen" id="Calendario">
                 </div>
-                <div class="border" style="display: flex;" id="DivChat">
-                    <h4 style="text-align: center; justify-content: center;">Chat</h4>
+
+                <!-- CHAT -->
+                <div class="row border" style="display: flex;" id="DivChat">
+                    <div class="row border" id="CuadroChat">
+                        <!-- CHAT HEADER -->
+                         <div class="border" id="ChatHeader" style="padding: 10px; background-color: #f8f9fa;">
+                            <h5>Chat</h5>
+                        </div>
+                        
+                        <p>Bienvenido al chat de Home-Connect. ¿En qué podemos ayudarte hoy?</p>
+
+                        <!-- CHAT FOOTER -->
+                        <div class="border" id="ChatFooter" style="padding: 10px; background-color: #f8f9fa;">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Escribe un mensaje..." id="InputChat">
+                                <button class="btn btn-outline-dark rounded"><i class="fa-solid fa-paper-plane"></i></button>
+                            </div>
+                        </div>
+
+                    </div>   
+
                 </div>
             </div>
             
