@@ -1,5 +1,12 @@
+main.auth {
+    min-height: calc(100vh - 56px);
+    display: grid;
+    place-items: center;
+    padding: 24px 12px;
+}
+
 #navbar-principal {
-    background-color: blueviolet;
+    background-color: #7b4df1;
     padding: 3px;
 }
 
@@ -12,7 +19,7 @@
     margin-right: 10px;
     padding: 5px;
     border-radius: 5px;
-    background-color: blueviolet;
+    background-color: #7b4df1;
     /*border: 1px solid white;*/
     text-align: center;
 }   
@@ -80,6 +87,43 @@
     justify-content: center;
     align-items: center;
     display: flex;
+    text-align: center;
+}
+
+#divSesion{
+    width: 360px;
+    border: 2.5px solid #000;
+    border-radius: 16px;
+    padding: 24px 28px;
+    background: #fff;
+    box-shadow: 0 4px 16px rgba(0,0,0,.06);
+}
+
+#divSesion form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#divSesion input{
+    border: 2px solid #000;
+    border-radius: 12px;
+    padding: 10px 12px;
+    font-size: 14px;
+    outline: none;
+}
+
+#divSesion .btn-primary{
+    background-color: #7b4df1;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 12px;
+    font-weight: 700;
+}
+
+#divSesion .registerLink{
+    margin-top: 6px;
+    font-size: 12px;
     text-align: center;
 }
 

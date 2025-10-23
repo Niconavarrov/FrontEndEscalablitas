@@ -40,17 +40,21 @@
     <!-- FIN DEL NAVBAR PRINCIPAL -->
 
     <!-- FORMULARIO DE INICIO DE SESIÓN-->
-    <div class="container">
-        <h2>Iniciar sesión</h2>
-        <form action="#" method="POST">
-            <input type="text" name="username" placeholder="Usuario" required>
-            <input type="password" name="password" placeholder="Contraseña" required>
-            <button type="submit">Iniciar Sesión</button>
-        </form>
-        <div class="registerLink">
-            ¿No tienes cuenta? <a href="Registro.html">Regístrate</a>
-        </div>
-    </div>
-    
+        <main class="auth">
+            <div id="divSesion">
+            <h2>Iniciar sesión</h2>
+
+            <form action="#" method="POST" novalidate>
+                <input type="text" name="username" placeholder="Usuario" required />
+                <input type="password" name="password" placeholder="Contraseña" required />
+                <button type="submit" class="btn btn-primary w-100">Iniciar sesión</button>
+            </form>
+
+            <div class="registerLink">
+                ¿No tienes cuenta? <a href="Registro.html">Regístrate</a>
+            </div>
+            </div>
+
+        </main>
 </body>
 </html>
