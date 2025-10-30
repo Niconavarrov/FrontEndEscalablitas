@@ -132,3 +132,13 @@ main.auth {
     align-items: center;
     display: flex;
 }
+
+#ColorButton{
+    background-color: #7b4df1; 
+    border-color: #7b4df1;
+}
+
+#Borders, .Borders {
+    border: 2.5px solid black;
+    border-radius: 10px;
+}
