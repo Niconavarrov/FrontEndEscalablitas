@@ -5,6 +5,13 @@ main.auth {
     padding: 24px 12px;
 }
 
+
+#camposProfesionales {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+
 #navbar-principal {
     background-color: #7b4df1;
     padding: 3px;
@@ -88,6 +95,14 @@ main.auth {
     align-items: center;
     display: flex;
     text-align: center;
+}
+
+#camposProfesionales input{
+    margin-bottom: 10px;
+    border-radius: 12px;
+    padding: 10px 12px;
+    font-size: 14px;
+    width: 100%;
 }
 
 #divSesion{
