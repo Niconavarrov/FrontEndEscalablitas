@@ -20,6 +20,11 @@
                 </li>
             </ul>
             <ul class="navbar-nav" id="sesion-navbar">
+                <li class="nav-item">
+                    <a class="nav-link" style="color:white;">
+                        <i class="fa-solid fa-bell"></i>
+                    </a>
+                </li>
                 <li class="nav-item">  
                     <a class="nav-link" href="Cuenta.html" style="color:white;">
                         <i class="fa-solid fa-user" style="color:white;"></i> Cuenta
@@ -56,34 +61,97 @@
                     <!-- DIV BOTONES CATEGORIAS -->
                     <div class="row" id="DivBotones" style="margin-left: 1px; margin-right: 1px;">
                         <div class="col-sm" id="BtnServicios">
-                            <button class="btn btn-secondary" id="Borders">Plomeros</button>
-                        </div>
-                      <div class="col-sm" id="BtnServicios">
-                            <button class="btn btn-secondary" id="Borders">Carpinteros</button>
-                        </div>
-                        <div class="col-sm" id="BtnServicios">
-                            <button class="btn btn-secondary" id="Borders">Cerrajeros</button>
+                            <button class="btn btn-secondary categoria-btn" id="Borders" data-bs-toggle="modal" data-bs-target="#serviciosModal" data-categoria="plomeros">
+                                Plomeros
+                            </button>
                         </div>
                         <div class="col-sm" id="BtnServicios">
-                            <button class="btn btn-secondary" id="Borders">Fontaneros</button>
+                            <button class="btn btn-secondary categoria-btn" id="Borders" data-bs-toggle="modal" data-bs-target="#serviciosModal" data-categoria="carpinteros">
+                                Carpinteros
+                            </button>
                         </div>
                         <div class="col-sm" id="BtnServicios">
+                            <button class="btn btn-secondary categoria-btn" id="Borders" data-bs-toggle="modal" data-bs-target="#serviciosModal" data-categoria="cerrajeros">
+                                Cerrajeros
+                            </button>
+                        </div>
+                        <div class="col-sm" id="BtnServicios">
+                            <button class="btn btn-secondary categoria-btn" id="Borders" data-bs-toggle="modal" data-bs-target="#serviciosModal" data-categoria="fontaneros">
+                                Fontaneros
+                            </button>                        
+                        </div>
+                        <div class="col-sm" id="BtnServicios">
+
+                            <!-- DIV DROPDOWN CATEGORIAS -->
                             <div class="dropdown">
                                 <button type="button" id="Borders" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fas fa-plus"></i> Más
                                 </button>
+                                <!-- MENU -->
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#"><i class="fas fa-paint-roller"></i> Pintores</a></li>
-                                    <li><a class="dropdown-item" href="#"><i class="fas fa-bolt"></i> Electricistas</a></li>
-                                    <li><a class="dropdown-item" href="#"><i class="fas fa-tree"></i> Jardineros</a></li>
-                                    <li><a class="dropdown-item" href="#"><i class="fas fa-broom"></i> Limpieza</a></li>
-                                    <li><a class="dropdown-item" href="#"><i class="fas fa-hammer"></i> Albañiles</a></li>
-                                    <li><a class="dropdown-item" href="#"><i class="fas fa-couch"></i> Tapiceros</a></li>
+                                    <li>
+                                        <a class="dropdown-item categoria-btn" href="#" data-bs-toggle="modal" data-bs-target="#serviciosModal" data-categoria="pintores">
+                                            <i class="fas fa-paint-roller"></i>
+                                            Pintores
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item categoria-btn" href="#" data-bs-toggle="modal" data-bs-target="#serviciosModal" data-categoria="electricistas">
+                                            <i class="fas fa-bolt"></i>
+                                            Electricistas
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item categoria-btn" href="#" data-bs-toggle="modal" data-bs-target="#serviciosModal" data-categoria="jardineros">
+                                            <i class="fas fa-tree"></i>
+                                            Jardineros
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item categoria-btn" href="#" data-bs-toggle="modal" data-bs-target="#serviciosModal" data-categoria="limpieza">
+                                            <i class="fas fa-broom"></i>
+                                            Limpieza
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item categoria-btn" href="#" data-bs-toggle="modal" data-bs-target="#serviciosModal" data-categoria="albañiles">
+                                            <i class="fas fa-hammer"></i>
+                                            Albañiles
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item categoria-btn" href="#" data-bs-toggle="modal" data-bs-target="#serviciosModal" data-categoria="tapiceros">
+                                            <i class="fas fa-couch"></i>
+                                            Tapiceros
+                                        </a>
+                                    </li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li><a class="dropdown-item" href="#"><i class="fas fa-th-list"></i> Ver todas las categorías</a></li>
                                 </ul>
                             </div>
                         </div>
+
+                        <!-- DIV MODAL PARA PROFESIONALES -->
+                        <div class="modal fade" id="serviciosModal" tabindex="-1" aria-labelledby="serviciosModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="serviciosModalLabel">Profesionales Disponibles</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row row-cols-1 row-cols-md-2 g-4" id="modalCards">
+                                            <!-- Las cards se generarán dinámicamente aquí -->
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                        <button type="button" class="btn btn-primary" id="ColorButton">Ver todos los profesionales</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
