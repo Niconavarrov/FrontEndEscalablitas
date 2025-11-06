@@ -142,3 +142,30 @@ main.auth {
     border: 2.5px solid black;
     border-radius: 10px;
 }
+
+#recomendadosCarousel {
+            padding: 0 40px;
+        }
+        #recomendadosCarousel .carousel-control-prev,
+        #recomendadosCarousel .carousel-control-next {
+            width: 40px;
+            background-color: rgba(123, 77, 241, 0.2);
+            border-radius: 5px;
+        }
+        #recomendadosCarousel .carousel-indicators {
+            bottom: -40px;
+        }
+        #recomendadosCarousel .carousel-indicators button {
+            background-color: #7b4df1;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin: 0 5px;
+        }
+        #recomendadosCarousel .carousel-item {
+            padding: 20px 0;
+        }
+        #recomendadosCarousel .card {
+            margin: 0 auto;
+            max-width: 300px;
+        }

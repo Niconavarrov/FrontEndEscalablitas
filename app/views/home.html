@@ -6,7 +6,9 @@
     <script src="scripts/home.js"></script>
     <link rel="stylesheet" href="styles/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/07b7b4af07.js" crossorigin="anonymous"></script>
+    
 </head>
 <body>
     <!-- CREACION DEL NAVBAR PRINCIPAL -->
@@ -36,10 +38,10 @@
 
     <!-- INICIO DE PANEL DE HOME -->
     <div class="container" style="padding: 20px;">
-        <div class="row border" id="div-home">
+        <div class="row" id="div-home">
             
             <!-- ZONA IZQUIERDA -->
-            <div class="col-sm-7 border" id="HomeIzquierda">
+            <div class="col-sm-7" id="HomeIzquierda">
                 <h1 id="homeTXT">Home</h1>
                 <div class="" id="Buscador" style="padding: 20px;">
                     
@@ -51,7 +53,7 @@
                      </div>
                     
                     
-                    <!-- BOTONES -->
+                    <!-- DIV BOTONES CATEGORIAS -->
                     <div class="row" id="DivBotones" style="margin-left: 1px; margin-right: 1px;">
                         <div class="col-sm" id="BtnServicios">
                             <button class="btn btn-secondary" id="Borders">Plomeros</button>
@@ -66,14 +68,121 @@
                             <button class="btn btn-secondary" id="Borders">Fontaneros</button>
                         </div>
                         <div class="col-sm" id="BtnServicios">
-                            <button class="btn btn-secondary" id="Borders"> + </button>
+                            <div class="dropdown">
+                                <button type="button" id="Borders" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-plus"></i> Más
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#"><i class="fas fa-paint-roller"></i> Pintores</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="fas fa-bolt"></i> Electricistas</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="fas fa-tree"></i> Jardineros</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="fas fa-broom"></i> Limpieza</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="fas fa-hammer"></i> Albañiles</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="fas fa-couch"></i> Tapiceros</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="#"><i class="fas fa-th-list"></i> Ver todas las categorías</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- DIV RECOMENDADOS -->
-                <div class="Borders" style="margin-top: 2px; padding: 15px;" id="Borders">
+                
+                
+
+                <!--DIV RECOMENDADOS-->
+                <div class="Borders" style="margin-top: 10px; padding: 15px;" id="Borders">
                     <h3>Recomendados</h3>
+                    <!-- Carousel -->
+                    <div id="recomendadosCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <!-- Indicadores -->
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#recomendadosCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
+                            <button type="button" data-bs-target="#recomendadosCarousel" data-bs-slide-to="1"></button>
+                            <button type="button" data-bs-target="#recomendadosCarousel" data-bs-slide-to="2"></button>
+                        </div>
+                        
+                        <!-- Slides -->
+                        <div class="carousel-inner">
+                            <!-- Slide 1 -->
+                            <div class="carousel-item active">
+                                <div class="card h-100" id="Borders">
+                                    <img src="images/Plomero.jpg" class="card-img-top" alt="Fontanero" style="height: 150px; object-fit: cover; width: 100%;">
+                                    <div class="card-body p-2">
+                                        <h6 class="card-title mb-0">Raul Trump</h6>
+                                        <p class="card-text small mb-1">Fontanero</p>
+                                        <p class="card-text"><small class="text-muted">5 años exp.</small></p>
+                                        <div class="star-rating small mb-1">
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star-half-alt text-warning"></i>
+                                            <span class="ms-1">4.5</span>
+                                        </div>
+                                        <button class="btn btn-primary btn-sm btn-block w-100" id="ColorButton">Ver Perfil</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Slide 2 -->
+                            <div class="carousel-item">
+                                <div class="card h-100" id="Borders">
+                                    <img src="images/Carpintero.jpg" class="card-img-top" alt="Carpintero" style="height: 150px; object-fit: cover; width: 100%;">
+                                    <div class="card-body p-2">
+                                        <h6 class="card-title mb-0">Ale Calvillo</h6>
+                                        <p class="card-text small mb-1">Carpintero</p>
+                                        <p class="card-text"><small class="text-muted">3 años exp.</small></p>
+                                        <div class="star-rating small mb-1">
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="far fa-star text-warning"></i>
+                                            <span class="ms-1">4.0</span>
+                                        </div>
+                                        <button class="btn btn-primary btn-sm btn-block w-100" id="ColorButton">Ver Perfil</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Slide 3 -->
+                            <div class="carousel-item">
+                                <div class="card h-100" id="Borders">
+                                    <img src="images/Cerrajero.jpg" class="card-img-top" alt="Cerrajero" style="height: 150px; object-fit: cover; width: 100%;">
+                                    <div class="card-body p-2">
+                                        <h6 class="card-title mb-0">Lla Vero</h6>
+                                        <p class="card-text small mb-1">Cerrajero</p>
+                                        <p class="card-text"><small class="text-muted">7 años exp.</small></p>
+                                        <div class="star-rating small mb-1">
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <span class="ms-1">5.0</span>
+                                        </div>
+                                        <button class="btn btn-primary btn-sm btn-block w-100" id="ColorButton">Ver Perfil</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Controles -->
+                        <button class="carousel-control-prev" type="button" data-bs-target="#recomendadosCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Anterior</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#recomendadosCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Siguiente</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- DIV HISTORIAL-->
+                <div class="Borders" style="margin-top: 10px; padding: 15px;" id="Borders">
+                    <h3>Historial de Servicios</h3>
                     <!-- Grid de Cards 3x2 -->
                     <div class="row row-cols-3 g-3">
                         <!-- Card 1 -->
@@ -226,15 +335,11 @@
                     </nav>
                 </div>
 
-                <!--DIV HISTORIAL-->
-                <div class="Borders" style="margin-top: 10px; padding: 15px;">
-                    <h3>Historial de Servicios</h3>
 
-                </div>
             </div>
 
             <!-- ZONA DERECHA -->
-            <div class="col-sm border" id="DivDerecha" style="padding: 20px;">
+            <div class="col-sm" id="DivDerecha" style="padding: 20px;">
                 
                 <div class="Borders" style="display: flex; margin-bottom: 10px;" id="DivCalendario">
                     <h3>Proximas Citas</h3>
@@ -264,10 +369,55 @@
                 </div>
 
                 <!-- FAVORITOS -->
-                <div class="border" style="margin-bottom: 10px;" id="DivFavoritos">
-                    <div class="border">
-                        
+                <div class="Borders" style="margin-bottom: 10px; padding: 1px;" id="DivFavoritos">
+                    <div class="" style="margin-top: 2px; padding: 15px;" id="FavCards">
+                        <h3>Favoritos</h3>
+                        <div class="row row-cols-2 g-2">
+                        <!-- Card 1 -->
+                            <div class="col">
+                                <div class="card h-100" id="Borders">
+                                    <img src="images/Cerrajero.jpg" class="card-img-top" alt="Cerrajero" style="height: 150px; object-fit: cover; width: 100%;">
+                                    <div class="card-body p-2">
+                                        <h6 class="card-title mb-0">Lla Vero</h6>
+                                        <p class="card-text small mb-1">Cerrajero</p>
+                                        <p class="card-text"><small class="text-muted">Experiencia: 7 años</small></p>
+                                        <div class="star-rating small mb-1">
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <span class="ms-1">5.0</span>
+                                        </div>
+                                        <button class="btn btn-primary btn-sm btn-block w-100" id="ColorButton">
+                                            Ver Perfil
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        <!-- Card 2 -->
+                            <div class="col">
+                            <div class="card h-100" id="Borders">
+                                <img src="images/Imagen_Proyecto.jpg" class="card-img-top" alt="Jardinero" style="height: 150px; object-fit: cover; width: 100%;">
+                                <div class="card-body p-2">
+                                    <h6 class="card-title mb-0">Juan Pérez</h6>
+                                    <p class="card-text small mb-1">Jardinero</p>
+                                    <p class="card-text"><small class="text-muted">Experiencia: 4 años</small></p>
+                                    <div class="star-rating small mb-1">
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star-half-alt text-warning"></i>
+                                        <i class="far fa-star text-warning"></i>
+                                        <span class="ms-1">3.5</span>
+                                    </div>
+                                    <button class="btn btn-primary btn-sm btn-block w-100" id="ColorButton">
+                                        Ver Perfil
+                                    </button>
+                                </div>
+                            </div>
 
+                        </div>                   
                     </div>
                 </div>
 
@@ -279,7 +429,7 @@
     <!-- FIN DE PANEL DE HOME -->
      
 
-
+    <!-- FIN DE PANEL DE HOME 
     <center><h1>Escalablitas APP</h1></center>
     <center><div class="container">
         <button class="btn btn-primary" onclick="toggleImagen()">MAGIA</button>
@@ -288,6 +438,6 @@
         </div>
         <button>RAFA</button>
     </div></center>
-    
+    -->
 </body>
 </html>
