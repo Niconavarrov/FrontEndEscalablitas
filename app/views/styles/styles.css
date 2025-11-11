@@ -1,226 +1,220 @@
-main.auth {
-    min-height: calc(100vh - 56px);
-    display: grid;
-    place-items: center;
-    padding: 24px 12px;
+main.auth{
+  min-height: calc(100vh - 56px);
+  display: grid;
+  place-items: center;
+  padding: 24px 12px;
 }
 
-
-#camposProfesionales {
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+/* Profesionales: animación y spacing */
+#camposProfesionales{
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+#camposProfesionales select,
+#camposProfesionales textarea,
+#camposProfesionales input{
+  margin-bottom: 10px;
 }
 
-
-#navbar-principal {
-    background-color: #7b4df1;
-    padding: 3px;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
+/* Navbar / footer de ancho completo */
+#navbar-principal{
+  background-color: #7b4df1;
+  padding: 3px;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+#footer-principal{
+  background-color: #7b4df1, 0.6;
+  padding: 3px;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-top: 20px;
 }
 
-#footer-principal {
-    background-color: #7b4df1, 0.6;
-    padding: 3px;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    margin-top: 20px;
-}
-
+/* Logo */
 .logo-navbar #logo{
-    color:white; 
-    font-weight: bold; 
-    font-size: 22px;
-    text-decoration: none;
-    margin-left: 10px;
-    margin-right: 10px;
-    padding: 5px;
-    border-radius: 5px;
-    background-color: #7b4df1;
-    /*border: 1px solid white;*/
-    text-align: center;
-}   
-
-#sesion-navbar {
-    font-size: 16px;
-    /*border: 1px solid white;*/
-    display: flex;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  color: #fff;
+  font-weight: bold;
+  font-size: 22px;
+  text-decoration: none;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #7b4df1;
+  text-align: center;
 }
 
-#registrarse {
-    border: 1px solid white;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+/* Sesión navbar */
+#sesion-navbar{
+  font-size: 16px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 
+/* Botón registrarse */
+#registrarse{
+  border: 1px solid white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Cuadro sesión */
 #CuadroSesion{
-    border: 2.5px solid black;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 100px;
-    border-radius: 5px;
+  border: 2.5px solid #000;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px;
+  border-radius: 5px;
 }
 
-#DivDerecha, #HomeIzquierda{
-    padding: 20px;
-}
+#DivDerecha,
+#HomeIzquierda{ padding: 20px; }
 
 #DivCalendario{
-    width: 100%;
-    height: auto;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-    padding: 10px;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  padding: 10px;
 }
 
 #Calendario{
-    width: 50%;
-    height: auto;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    text-align: center;
+  width: 50%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  text-align: center;
 }
 
-#BtnServicios{
-    padding: 5px;
-    
-}
+#BtnServicios{ padding: 5px; }
 
 #DivBotones{
-    padding: 5px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    text-align: center;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  text-align: center;
 }
 
+/* Inputs pro */
 #camposProfesionales input{
-    margin-bottom: 10px;
-    border-radius: 12px;
-    padding: 10px 12px;
-    font-size: 14px;
-    width: 100%;
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 14px;
+  width: 100%;
 }
 
+/* Card de login/registro */
 #divSesion{
-    width: 360px;
-    border: 2.5px solid #000;
-    border-radius: 16px;
-    padding: 24px 28px;
-    background: #fff;
-    box-shadow: 0 4px 16px rgba(0,0,0,.06);
+  width: 360px;
+  border: 2.5px solid #000;
+  border-radius: 16px;
+  padding: 24px 28px;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(0,0,0,.06);
 }
 
 #divSesion form{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 #divSesion input{
-    border: 2px solid #000;
-    border-radius: 12px;
-    padding: 10px 12px;
-    font-size: 14px;
-    outline: none;
+  border: 2px solid #000;
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 14px;
+  outline: none;
 }
 
 #divSesion .btn-primary{
-    background-color: #7b4df1;
-    border: none;
-    border-radius: 12px;
-    padding: 10px 12px;
-    font-weight: 700;
+  background-color: #7b4df1;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-weight: 700;
 }
 
 #divSesion .registerLink{
-    margin-top: 6px;
-    font-size: 12px;
-    text-align: center;
+  margin-top: 6px;
+  font-size: 12px;
+  text-align: center;
 }
 
-#CenterDiv, #DivChat{
-    justify-content: center;
-    align-items: center;
-    display: flex;
+/* Centrados comunes */
+#CenterDiv,
+#DivChat{
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 
+/* Colores utilitarios */
 #ColorButton{
-    background-color: #7b4df1; 
-    border-color: #7b4df1;
+  background-color: #7b4df1;
+  border-color: #7b4df1;
 }
 
-#Borders, .Borders {
-    border: 2.5px solid black;
-    border-radius: 10px;
+#Borders,
+.Borders{
+  border: 2.5px solid black;
+  border-radius: 10px;
 }
 
-#recomendadosCarousel {
-            padding: 0 40px;
-        }
-        #recomendadosCarousel .carousel-control-prev,
-        #recomendadosCarousel .carousel-control-next {
-            width: 40px;
-            background-color: rgba(123, 77, 241, 0.2);
-            border-radius: 5px;
-        }
-        #recomendadosCarousel .carousel-indicators {
-            bottom: -40px;
-        }
-        #recomendadosCarousel .carousel-indicators button {
-            background-color: #7b4df1;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            margin: 0 5px;
-        }
-        #recomendadosCarousel .carousel-item {
-            padding: 20px 0;
-        }
-        #recomendadosCarousel .card {
-            margin: 0 auto;
-            max-width: 300px;
-        }
+/* Carrusel recomendados */
+#recomendadosCarousel{ padding: 0 40px; }
 
+#recomendadosCarousel .carousel-control-prev,
+#recomendadosCarousel .carousel-control-next{
+  width: 40px;
+  background-color: #7b4df1;
+  border-radius: 5px;
+}
+
+#recomendadosCarousel .carousel-indicators{ bottom: -40px; }
+
+#recomendadosCarousel .carousel-indicators button{
+  background-color: #7b4df1;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 0 5px;
+}
+
+#recomendadosCarousel .carousel-item{ padding: 20px 0; }
+
+#recomendadosCarousel .card{
+  margin: 0 auto;
+  max-width: 300px;
+}
+
+/* Selects */
 #divSesion select,
-#camposProfesionales select {
-    width: 100%;
-    border: 2px solid #000;
-    border-radius: 12px;
-    padding: 10px 36px 10px 12px; 
-    font-size: 14px;
-    outline: none;
-    background-color: #fff;
-    cursor: pointer;
-    
-
+#camposProfesionales select{
+  width: 100%;
+  border: 2px solid #000;
+  border-radius: 12px;
+  padding: 10px 36px 10px 12px;
+  font-size: 14px;
+  outline: none;
+  background-color: #fff;
+  cursor: pointer;
 }
 
 #divSesion select option,
-#camposProfesionales select option {
-    color: #000;
-}
+#camposProfesionales select option{ color: #000; }
 
 #divSesion select::-ms-expand,
-#camposProfesionales select::-ms-expand {
-    display: none;
-}
-
-#camposProfesionales select,
-#camposProfesionales textarea,
-#camposProfesionales input {
-  margin-bottom: 10px;
-}
+#camposProfesionales select::-ms-expand{ display: none; }
