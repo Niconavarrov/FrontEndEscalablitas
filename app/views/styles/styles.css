@@ -184,3 +184,33 @@ main.auth {
             margin: 0 auto;
             max-width: 300px;
         }
+
+#divSesion select,
+#camposProfesionales select {
+    width: 100%;
+    border: 2px solid #000;
+    border-radius: 12px;
+    padding: 10px 36px 10px 12px; 
+    font-size: 14px;
+    outline: none;
+    background-color: #fff;
+    cursor: pointer;
+    
+
+}
+
+#divSesion select option,
+#camposProfesionales select option {
+    color: #000;
+}
+
+#divSesion select::-ms-expand,
+#camposProfesionales select::-ms-expand {
+    display: none;
+}
+
+#camposProfesionales select,
+#camposProfesionales textarea,
+#camposProfesionales input {
+  margin-bottom: 10px;
+}

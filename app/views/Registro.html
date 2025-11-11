@@ -59,10 +59,20 @@
                             <label for="checkProfesional">Cuenta Profesional</label>
                         </div>
                     </div>
-
                     <!-- Campos adicionales para cuenta profesional -->
                     <div id="camposProfesionales" style="display: none;">
-                        <input type="text" name="profesion" placeholder="Profesión u Oficio" required />
+                        <select id="servicio" name="servicio" required>
+                            <option value="" selected disabled>— Elige una opción —</option>
+                            <option value="op1">Albañil</option>
+                            <option value="op2">Carpintero</option>
+                            <option value="op3">Cerrajero</option>
+                            <option value="op4">Electricista</option>
+                            <option value="op5">Jardinero</option>
+                            <option value="op6">Limpieza</option>
+                            <option value="op7">Pintor</option>
+                            <option value="op7">Plomero</option>
+                            <option value="op7">Tapicero</option>
+                        </select>
                         <input type="number" name="experiencia" placeholder="Años de Experiencia" min="0" required />
                         <input type="text" name="especialidad" placeholder="Especialidad" required />
                         <textarea name="descripcion" placeholder="Descripción de tus servicios" rows="3" class="form-control mb-3" required></textarea>
