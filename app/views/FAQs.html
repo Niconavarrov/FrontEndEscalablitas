@@ -1,13 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
-    <title>Escalablitas APP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs - Home-Connect</title>
+    <meta name="description"
+        content="Preguntas frecuentes sobre Home-Connect, la plataforma que conecta profesionales del hogar con clientes.">
     <script src="scripts/home.js"></script>
     <link rel="stylesheet" href="styles/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/07b7b4af07.js" crossorigin="anonymous"></script>
+    <style>
+        .faq-hero {
+            background: linear-gradient(135deg, #7b4df1 0%, #9b6fff 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .faq-hero h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .faq-hero p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: #7b4df1;
+            color: white;
+        }
+
+        .accordion-button:focus {
+            box-shadow: 0 0 0 0.25rem rgba(123, 77, 241, 0.25);
+        }
+
+        .accordion-item {
+            border: 2px solid #dee2e6;
+            margin-bottom: 10px;
+            border-radius: 8px !important;
+            overflow: hidden;
+        }
+
+        .accordion-button {
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        .faq-icon {
+            color: #7b4df1;
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .contact-box {
+            background-color: #f8f9fa;
+            border: 2.5px solid #7b4df1;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .contact-box h3 {
+            color: #7b4df1;
+            margin-bottom: 15px;
+        }
+    </style>
 </head>
 
 <body>
@@ -27,13 +92,12 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="InicioSesion.html" style="color:white;">
-                        <i class="fa-solid fa-user" style="color:white;"></i> Iniciar Sesion
+                        <i class="fa-solid fa-user" style="color:white;"></i> Iniciar Sesión
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="Registro.html" style="color:white;">
                         <button class="btn btn-light" style="shape-margin: 10px;" id="registrarse">Registrarse</button>
-
                     </a>
                 </li>
             </ul>
@@ -41,13 +105,233 @@
     </nav>
     <!-- FIN DEL NAVBAR PRINCIPAL -->
 
+    <!-- HERO SECTION -->
+    <div class="faq-hero">
+        <div class="container">
+            <h1><i class="fa-solid fa-circle-question"></i> Preguntas Frecuentes</h1>
+            <p>Encuentra respuestas a las preguntas más comunes sobre Home-Connect</p>
+        </div>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="container" style="max-width: 900px; padding-bottom: 40px;">
+
+        <!-- ACCORDION DE PREGUNTAS -->
+        <div class="accordion" id="faqAccordion">
+
+            <!-- Pregunta 1 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading1">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1"
+                        aria-expanded="true" aria-controls="collapse1">
+                        <i class="fa-solid fa-house-user faq-icon"></i>
+                        ¿Qué es Home-Connect?
+                    </button>
+                </h2>
+                <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="heading1"
+                    data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Home-Connect es una plataforma que conecta a profesionales del hogar (plomeros, electricistas,
+                        carpinteros, etc.) con clientes que necesitan sus servicios. Facilitamos el proceso de búsqueda,
+                        contratación y seguimiento de servicios para el hogar de manera rápida y segura.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pregunta 2 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading2">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                        <i class="fa-solid fa-user-plus faq-icon"></i>
+                        ¿Cómo me registro en la plataforma?
+                    </button>
+                </h2>
+                <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2"
+                    data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Puedes registrarte haciendo clic en el botón "Registrarse" en la parte superior de la página.
+                        Deberás proporcionar tu información básica como nombre, correo electrónico y contraseña. Si eres
+                        un profesional, también podrás registrarte seleccionando la opción correspondiente y completando
+                        tu perfil profesional.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pregunta 3 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading3">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                        <i class="fa-solid fa-magnifying-glass faq-icon"></i>
+                        ¿Cómo busco un profesional?
+                    </button>
+                </h2>
+                <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3"
+                    data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Una vez que inicies sesión, podrás buscar profesionales utilizando el buscador o seleccionando
+                        una categoría específica (plomeros, electricistas, carpinteros, etc.). Podrás ver los perfiles
+                        de los profesionales, sus calificaciones, experiencia y reseñas de otros clientes antes de
+                        contactarlos.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pregunta 4 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading4">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                        <i class="fa-solid fa-shield-halved faq-icon"></i>
+                        ¿Es seguro contratar a través de Home-Connect?
+                    </button>
+                </h2>
+                <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4"
+                    data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Sí, todos los profesionales registrados en nuestra plataforma son verificados. Además, contamos
+                        con un sistema de calificaciones y reseñas que permite a los usuarios compartir sus
+                        experiencias, lo que ayuda a mantener la calidad del servicio. Recomendamos siempre revisar las
+                        calificaciones antes de contratar.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pregunta 5 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading5">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                        <i class="fa-solid fa-dollar-sign faq-icon"></i>
+                        ¿Cuánto cuesta usar Home-Connect?
+                    </button>
+                </h2>
+                <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5"
+                    data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Crear una cuenta y buscar profesionales en Home-Connect es completamente gratuito para los
+                        clientes. Los profesionales pueden tener planes de suscripción para destacar sus perfiles. El
+                        costo del servicio lo acordarás directamente con el profesional que contrates.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pregunta 6 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading6">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                        <i class="fa-solid fa-calendar-check faq-icon"></i>
+                        ¿Cómo agendo una cita con un profesional?
+                    </button>
+                </h2>
+                <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="heading6"
+                    data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Después de seleccionar un profesional, puedes contactarlo a través del chat integrado en la
+                        plataforma para coordinar fecha, hora y detalles del servicio. También puedes ver las próximas
+                        citas en tu calendario personal dentro de la aplicación.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pregunta 7 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading7">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
+                        <i class="fa-solid fa-star faq-icon"></i>
+                        ¿Puedo dejar una reseña después del servicio?
+                    </button>
+                </h2>
+                <div id="collapse7" class="accordion-collapse collapse" aria-labelledby="heading7"
+                    data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        ¡Absolutamente! Después de completar un servicio, te invitamos a calificar al profesional y
+                        dejar una reseña. Esto ayuda a otros usuarios a tomar decisiones informadas y también ayuda a
+                        los profesionales a mejorar sus servicios.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pregunta 8 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading8">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
+                        <i class="fa-solid fa-heart faq-icon"></i>
+                        ¿Qué son los favoritos?
+                    </button>
+                </h2>
+                <div id="collapse8" class="accordion-collapse collapse" aria-labelledby="heading8"
+                    data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Puedes marcar a tus profesionales preferidos como favoritos para encontrarlos fácilmente en el
+                        futuro. Esto es útil si has tenido una buena experiencia con un profesional y deseas volver a
+                        contratarlo.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pregunta 9 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading9">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse9" aria-expanded="false" aria-controls="collapse9">
+                        <i class="fa-solid fa-wrench faq-icon"></i>
+                        ¿Qué categorías de servicios están disponibles?
+                    </button>
+                </h2>
+                <div id="collapse9" class="accordion-collapse collapse" aria-labelledby="heading9"
+                    data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Ofrecemos una amplia variedad de servicios para el hogar incluyendo: plomeros, electricistas,
+                        carpinteros, cerrajeros, fontaneros, pintores, jardineros, servicios de limpieza, albañiles y
+                        tapiceros. Constantemente estamos agregando nuevas categorías según la demanda.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pregunta 10 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading10">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse10" aria-expanded="false" aria-controls="collapse10">
+                        <i class="fa-solid fa-briefcase faq-icon"></i>
+                        ¿Puedo registrarme como profesional?
+                    </button>
+                </h2>
+                <div id="collapse10" class="accordion-collapse collapse" aria-labelledby="heading10"
+                    data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        ¡Por supuesto! Si eres un profesional del hogar, puedes registrarte seleccionando la opción de
+                        profesional durante el registro. Deberás completar tu perfil con información sobre tu
+                        experiencia, servicios que ofreces, y cualquier certificación relevante. Esto te permitirá
+                        conectar con clientes potenciales en tu área.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- CAJA DE CONTACTO -->
+        <div class="contact-box">
+            <h3><i class="fa-solid fa-headset"></i> ¿No encontraste tu respuesta?</h3>
+            <p>Si tienes alguna otra pregunta o necesitas ayuda adicional, no dudes en contactarnos.</p>
+            <p><strong>Email:</strong> soporte@homeconnect.com</p>
+            <p><strong>Teléfono:</strong> +52 (33) 1234-5678</p>
+            <p><strong>Horario:</strong> Lunes a Viernes, 9:00 AM - 6:00 PM</p>
+        </div>
+
+    </div>
+
     <!-- FOOTER -->
     <footer id="footer-principal">
         <div class="container-fluid" id="DivBotones">
             <h4 style="color: white;">Home-Connect &copy; 2024</h4>
         </div>
     </footer>
-
 
 </body>
 
