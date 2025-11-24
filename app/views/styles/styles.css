@@ -218,3 +218,42 @@ main.auth{
 
 #divSesion select::-ms-expand,
 #camposProfesionales select::-ms-expand{ display: none; }
+
+/* Páginas legales: términos / privacidad */
+.legal-page{
+  max-width: 900px;
+  width: 100%;
+  background: #fff;
+  padding: 24px 32px;
+  margin: 24px auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.04);
+  border: 1px solid rgba(0,0,0,.08);
+  font-size: 14px;
+}
+
+.legal-page h2{
+  font-size: 22px;
+}
+
+.legal-page h5{
+  margin-top: 16px;
+  margin-bottom: 6px;
+  font-size: 16px;
+}
+
+.legal-page p,
+.legal-page ul{
+  margin-bottom: 8px;
+}
+
+.legal-page ul{
+  padding-left: 20px;
+}
+
+@media (max-width: 576px){
+  .legal-page{
+    margin: 16px 12px;
+    padding: 16px 18px;
+  }
+}

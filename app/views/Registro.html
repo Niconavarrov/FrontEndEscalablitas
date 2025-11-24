@@ -57,12 +57,30 @@
                 <!-- <input type="text" name="username" placeholder="Usuario" required />-->
 
                 <div class="row" id="CuentaProfesional">
+                    <!-- Checkbox de cuenta profesional -->
                     <div class="form-check">
                         <input type="checkbox" name="cuentaPro" id="checkProfesional">
                         <label for="checkProfesional">Cuenta Profesional</label>
                     </div>
-                </div>
 
+                    <!-- Leyenda oculta por defecto para CUENTA PROFESIONAL -->
+                    <div id="cuentaProHelp" style="display: none; margin-top: 4px;">
+                        <small class="text-muted">
+                            Marcar esta opción significa que ofreces servicios profesionales. 
+                            Podrás completar tu perfil (servicios, experiencia y zona de trabajo) después de iniciar sesión.
+                        </small>
+                    </div>
+
+                    <!-- Leyenda de términos y condiciones -->
+                    <div class="mt-2">
+                        <small class="text-muted">
+                            Al continuar, confirmas que has leído y aceptas nuestros
+                            <a href="terminos.html" target="_blank">Términos y Condiciones</a>
+                            así como el
+                            <a href="privacidad.html" target="_blank">Aviso de Privacidad</a>.
+                        </small>
+                    </div>
+                </div>
                 <button type="submit" class="btn btn-primary w-100">Crear Cuenta</button>
             </form>
         </div>
