@@ -62,15 +62,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 confirm.focus();
                 return;
             }
-
-            // Si solo quieres probar en front sin enviar realmente:
-            // e.preventDefault();
-            // console.log('Formulario listo para enviarse');
         });
     }
 });
 
-// Crea un nuevo bloque de servicio profesional
+// Crea un nuevo bloque de servicio profesional (sin teléfono ni zona)
 function agregarNuevoServicio(listaServicios) {
     const numActual = listaServicios.querySelectorAll('.servicio-item').length;
     const nuevoNumero = numActual + 1;
@@ -103,8 +99,6 @@ function agregarNuevoServicio(listaServicios) {
         <input type="text" name="especialidad[]" placeholder="Especialidad" required />
         <textarea name="descripcion[]" placeholder="Descripción de tus servicios" rows="3"
             class="form-control mb-3" required></textarea>
-        <input type="tel" name="telefono[]" placeholder="Número de Teléfono" pattern="[0-9]{10}" required />
-        <input type="text" name="zona[]" placeholder="Zona de Servicio" required />
     `;
 
     listaServicios.appendChild(div);
