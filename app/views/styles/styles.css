@@ -167,10 +167,13 @@ main.auth{
   border-color: #7b4df1;
 }
 
+/* Paneles y tarjetas generales */
 #Borders,
 .Borders{
-  border: 2.5px solid black;
-  border-radius: 10px;
+  border: 1.5px solid #d3d3e0;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(15,15,30,.06);
 }
 
 /* Carrusel recomendados */
@@ -256,4 +259,29 @@ main.auth{
     margin: 16px 12px;
     padding: 16px 18px;
   }
+}
+
+/* ===== Botones de categorías ===== */
+#BtnServicios button#Borders{
+  background-color: #4b4f55;
+  border: 1.5px solid #22252a;
+  color: #fff;
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,.25);
+}
+
+#BtnServicios button#Borders:hover{
+  background-color: #3b3e44;
+}
+
+#BtnServicios button#Borders:focus{
+  outline: none;
+  box-shadow: 0 0 0 0.12rem rgba(123,77,241,0.45);
+}
+
+/* Dropdown */
+#BtnServicios .dropdown-menu{
+  font-size: 0.9rem;
 }
