@@ -1,3 +1,6 @@
+/* ======================================
+   LAYOUT GENERAL / AUTH
+   ====================================== */
 main.auth{
   min-height: calc(100vh - 56px);
   display: grid;
@@ -5,24 +8,61 @@ main.auth{
   padding: 24px 12px;
 }
 
-/* Profesionales: animación y spacing */
+/* ======================================
+   FORMULARIO PROFESIONALES (REGISTRO)
+   ====================================== */
 #camposProfesionales{
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
 }
+
 #camposProfesionales select,
 #camposProfesionales textarea,
 #camposProfesionales input{
   margin-bottom: 10px;
 }
 
-/* Navbar / footer de ancho completo */
+/* Inputs pro dentro de camposProfesionales */
+#camposProfesionales input{
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 14px;
+  width: 100%;
+}
+
+/* Selects de sesión y profesionales */
+#divSesion select,
+#camposProfesionales select{
+  width: 100%;
+  border: 2px solid #000;
+  border-radius: 12px;
+  padding: 10px 36px 10px 12px;
+  font-size: 14px;
+  outline: none;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+#divSesion select option,
+#camposProfesionales select option{
+  color: #000;
+}
+
+#divSesion select::-ms-expand,
+#camposProfesionales select::-ms-expand{
+  display: none;
+}
+
+/* ======================================
+   NAVBAR Y FOOTER PRINCIPALES
+   ====================================== */
 #navbar-principal{
   background-color: #7b4df1;
   padding: 3px;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
 }
+
 #footer-principal{
   background-color: rgba(123, 77, 241, 0.70);
   padding: 3px;
@@ -45,7 +85,7 @@ main.auth{
   text-align: center;
 }
 
-/* Sesión navbar */
+/* Menú de sesión (campana, cuenta, cerrar) */
 #sesion-navbar{
   font-size: 16px;
   display: flex;
@@ -54,7 +94,7 @@ main.auth{
   justify-content: center;
 }
 
-/* Botón registrarse */
+/* Botón "Registrarse" / "Cerrar Sesión" en navbar */
 #registrarse{
   border: 1px solid white;
   text-align: center;
@@ -63,7 +103,19 @@ main.auth{
   justify-content: center;
 }
 
-/* Cuadro sesión */
+/* Footer interno (texto centrado) */
+#DivBotones{
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  text-align: center;
+}
+
+/* ======================================
+   CUADROS Y LAYOUT DE PÁGINAS
+   ====================================== */
+/* Caja grande de login/registro centrada */
 #CuadroSesion{
   border: 2.5px solid #000;
   text-align: center;
@@ -74,9 +126,13 @@ main.auth{
   border-radius: 5px;
 }
 
+/* Columnas principales del home (izquierda / derecha) */
 #DivDerecha,
-#HomeIzquierda{ padding: 20px; }
+#HomeIzquierda{
+  padding: 10px;
+}
 
+/* Contenedor del calendario en home */
 #DivCalendario{
   width: 100%;
   height: auto;
@@ -97,25 +153,21 @@ main.auth{
   text-align: center;
 }
 
-#BtnServicios{ padding: 5px; }
-
-#DivBotones{
+/* Contenedor de botones (categorías, etc.) */
+#BtnServicios{
   padding: 5px;
+}
+
+/* Contenedores centrados reutilizables */
+#CenterDiv{
   justify-content: center;
   align-items: center;
   display: flex;
-  text-align: center;
 }
 
-/* Inputs pro */
-#camposProfesionales input{
-  border-radius: 12px;
-  padding: 10px 12px;
-  font-size: 14px;
-  width: 100%;
-}
-
-/* Card de login/registro */
+/* ======================================
+   CARD DE LOGIN / SESIÓN
+   ====================================== */
 #divSesion{
   width: 360px;
   border: 2.5px solid #000;
@@ -153,31 +205,36 @@ main.auth{
   text-align: center;
 }
 
-/* Centrados comunes */
-#CenterDiv,
-#DivChat{
-  justify-content: center;
-  align-items: center;
-  display: flex;
-}
-
-/* Colores utilitarios */
+/* ======================================
+   UTILITARIOS (COLORES, BORDES, ETC.)
+   ====================================== */
+/* Botones morados principales */
 #ColorButton{
   background-color: #7b4df1;
   border-color: #7b4df1;
 }
 
-/* Paneles y tarjetas generales */
+#ColorButtonGray{
+  background-color: rgb(241, 241, 241);
+  border-color: #c0c0c0;
+}
+
+/* Paneles y tarjetas con borde suave */
 #Borders,
 .Borders{
   border: 1.5px solid #d3d3e0;
   border-radius: 16px;
   background: #ffffff;
   box-shadow: 0 4px 12px rgba(15,15,30,.06);
+  overflow: hidden;
 }
 
-/* Carrusel recomendados */
-#recomendadosCarousel{ padding: 0 40px; }
+/* ======================================
+   CARRUSEL "RECOMENDADOS"
+   ====================================== */
+#recomendadosCarousel{
+  padding: 0 40px;
+}
 
 #recomendadosCarousel .carousel-control-prev,
 #recomendadosCarousel .carousel-control-next{
@@ -186,7 +243,9 @@ main.auth{
   border-radius: 5px;
 }
 
-#recomendadosCarousel .carousel-indicators{ bottom: -40px; }
+#recomendadosCarousel .carousel-indicators{
+  bottom: -40px;
+}
 
 #recomendadosCarousel .carousel-indicators button{
   background-color: #7b4df1;
@@ -196,33 +255,19 @@ main.auth{
   margin: 0 5px;
 }
 
-#recomendadosCarousel .carousel-item{ padding: 20px 0; }
+#recomendadosCarousel .carousel-item{
+  padding: 20px 0;
+}
 
 #recomendadosCarousel .card{
   margin: 0 auto;
   max-width: 300px;
+  overflow: hidden;
 }
 
-/* Selects */
-#divSesion select,
-#camposProfesionales select{
-  width: 100%;
-  border: 2px solid #000;
-  border-radius: 12px;
-  padding: 10px 36px 10px 12px;
-  font-size: 14px;
-  outline: none;
-  background-color: #fff;
-  cursor: pointer;
-}
-
-#divSesion select option,
-#camposProfesionales select option{ color: #000; }
-
-#divSesion select::-ms-expand,
-#camposProfesionales select::-ms-expand{ display: none; }
-
-/* Páginas legales: términos / privacidad */
+/* ======================================
+   PÁGINAS LEGALES (TÉRMINOS / PRIVACIDAD)
+   ====================================== */
 .legal-page{
   max-width: 900px;
   width: 100%;
@@ -261,7 +306,9 @@ main.auth{
   }
 }
 
-/* ===== Botones de categorías ===== */
+/* ======================================
+   BOTONES DE CATEGORÍAS (HOME USUARIOS)
+   ====================================== */
 #BtnServicios button#Borders{
   background-color: #4b4f55;
   border: 1.5px solid #22252a;
@@ -281,7 +328,19 @@ main.auth{
   box-shadow: 0 0 0 0.12rem rgba(123,77,241,0.45);
 }
 
-/* Dropdown */
+/* Dropdown del grupo de categorías */
 #BtnServicios .dropdown-menu{
   font-size: 0.9rem;
+}
+
+/* ======================================
+   CHAT (HOME / HOME PROFESIONAL)
+   ====================================== */
+#DivChat{
+  display: block;
+  overflow: hidden;
+}
+
+#CuadroChat{
+  width: 100%;
 }

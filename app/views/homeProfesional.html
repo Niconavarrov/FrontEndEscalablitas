@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Home Profesional</title>
+    <script src="scripts/homeProfesional.js"></script>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/07b7b4af07.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- CREACION DEL NAVBAR PRINCIPAL -->
+    <nav class="navbar navbar-expand-sm navbar-dark" id="navbar-principal">
+        <div class="container-fluid">
+            <ul class="navbar-nav">
+                <li class="logo-navbar">
+                    <a class="nav-link" href="home.html" id="logo">Home-Connect</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav" id="sesion-navbar">
+                <li class="nav-item">
+                    <a class="nav-link" style="color:white;">
+                        <i class="fa-solid fa-bell"></i>
+                    </a>
+                </li>
+                <li class="nav-item">  
+                    <a class="nav-link" href="Cuenta.html" style="color:white;">
+                        <i class="fa-solid fa-user" style="color:white;"></i> Cuenta
+                    </a>
+                </li>
+                <li class="nav-item">  
+                    <a class="nav-link" href="InicioSesion.html" style="color:white;">
+                        <button class="btn btn-light" style="shape-margin: 10px;" id="registrarse">Cerrar Sesion</button>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- FIN DEL NAVBAR PRINCIPAL -->
+    
+    <!-- INICIO HOME PROFESIONAL-->
+    <main class="container" style="padding: 20px;">
+        <h1 class="homeTXT">Home Profesional</h1>
+
+        <div class="row" id="div-home">
+            <!-- COLUMNA IZQUIERDA -->
+            <section class="col-sm-8" id="HomeIzquierda">
+                
+                <!-- Tarjeta completar perfil -->
+                <div class="card mb-4 shadow-sm Borders">
+                    <div class="card-header">
+                        <h5 class="mb-0">Completa tu perfil profesional</h5>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="descripcionProfesional" class="form-label">Descripción profesional</label>
+                                <textarea class="form-control" id="descripcionProfesional" rows="3" placeholder="Cuéntale a tus clientes quién eres y qué haces."></textarea>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="ubicacionProfesional" class="form-label">Ubicación</label>
+                                <input type="text" class="form-control" id="ubicacionProfesional" placeholder="Ciudad, Estado" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="experienciaProfesional" class="form-label">Años de experiencia</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="experienciaProfesional" placeholder="Ej. 3" min="0" required>
+                                    <span class="input-group-text">años</span>
+                                </div>
+                            </div>
+
+                            <button type="button" class="btn btn-primary" id="ColorButton">
+                                Guardar cambios
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Tarjeta: Servicios que ofrece / agregar servicios -->
+                <div class="card shadow-sm Borders">
+                    <div class="card-header">
+                        <h5 class="mb-0">Servicios que ofreces</h5>
+                    </div>
+                    <div class="card-body">
+                        <!-- Lista de servicios existentes -->
+                        <div class="mb-3">
+                            <h6>Servicios actuales</h6>
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span>Ejemplo: Plomería básica</span>
+                                    <span class="badge bg-secondary">Desde $300 MXN</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <hr>
+
+                        <!-- Form para agregar nuevo servicio -->
+                        <h6 class="mb-3">Agregar nuevo servicio</h6>
+                        <form>
+                            <div class="mb-3">
+                                <label for="nombreServicio" class="form-label">Nombre del servicio</label>
+                                <input type="text" class="form-control" id="nombreServicio" placeholder="Ej. Mantenimiento de aire acondicionado" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="categoriaServicio" class="form-label">Categoría</label>
+                                <select class="form-select" id="categoriaServicio" required>
+                                    <option value="" selected disabled>Selecciona una categoría</option>
+                                    <option>Plomería</option>
+                                    <option>Carpintería</option>
+                                    <option>Electricidad</option>
+                                    <option>Limpieza</option>
+                                    <option>Jardinería</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="precioServicio" class="form-label">Precio estimado (desde)</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="number" class="form-control" id="precioServicio" placeholder="Ej. 350" min="0" required>
+                                    <span class="input-group-text">MXN</span>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="descripcionServicio" class="form-label">Descripción</label>
+                                <textarea class="form-control" id="descripcionServicio" rows="3" placeholder="Describe brevemente en qué consiste el servicio."></textarea>
+                            </div>
+
+                            <button type="button" class="btn btn-success" id="ColorButton">
+                                Agregar servicio
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- COLUMNA DERECHA -->
+            <aside class="col-sm-4" id="DivDerecha">
+
+                <!-- PRÓXIMAS CITAS -->
+                <div class="Borders" style="display: flex; margin-bottom: 10px;" id="DivCalendario">
+                    <h3>Próximas Citas</h3>
+                    <img src="images/CalendarioDiosito.jpg" class="img-fluid rounded" alt="Calendario" id="Calendario">
+                </div>
+
+                <!-- CHAT -->
+                <div class="Borders mb-3" id="DivChat">
+                    <div id="CuadroChat" class="w-100">
+                        <!-- CHAT HEADER -->
+                        <div class="bg-light border-bottom px-3 py-2">
+                            <h5 class="mb-0">Chat</h5>
+                        </div>
+
+                        <!-- CHAT BODY + INPUT -->
+                        <div class="px-3 py-3">
+                            <p class="mb-3">
+                                Bienvenido al chat de Home-Connect. ¿En qué podemos ayudarte hoy?
+                            </p>
+
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Escribe un mensaje..." id="InputChat">
+                                <button class="btn" id="ColorButtonGray">
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="footer-principal">
+        <div class="container-fluid" id="DivBotones">
+            <h4 style="color: white;">Home-Connect &copy; 2024</h4>
+        </div>
+    </footer>
+    
+</body>
+</html>
