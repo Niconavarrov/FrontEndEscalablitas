@@ -176,25 +176,67 @@ function generarCardTrabajador(trabajador) {
 }
 
 // Event listener para cuando se abre el modal
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const serviciosModal = document.getElementById('serviciosModal');
     const modalTitle = serviciosModal.querySelector('.modal-title');
     const modalCards = document.getElementById('modalCards');
 
     // Escuchar clicks en los botones de categoría
     document.querySelectorAll('.categoria-btn').forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             const categoria = this.getAttribute('data-categoria');
             const trabajadores = trabajadoresPorCategoria[categoria];
-            
+
             // Actualizar título del modal
             modalTitle.textContent = `${this.textContent} Disponibles`;
-            
+
             // Limpiar y generar nuevas cards
             modalCards.innerHTML = '';
             trabajadores.forEach(trabajador => {
                 modalCards.innerHTML += generarCardTrabajador(trabajador);
             });
         });
+    });
+
+    // Global event listener for "Ver Perfil" and "Contactar" buttons
+    document.body.addEventListener('click', function (e) {
+        const button = e.target.closest('button');
+
+        if (button && (button.textContent.trim() === 'Ver Perfil' || button.textContent.trim() === 'Contactar')) {
+            // Find the card containing this button
+            const card = button.closest('.card');
+
+            if (card) {
+                // Extract professional data from the card
+                const nombre = card.querySelector('.card-title')?.textContent || '';
+                const profesion = card.querySelector('.card-text')?.textContent || '';
+                const experienciaText = card.querySelectorAll('.card-text')[1]?.textContent || '';
+                const experiencia = parseInt(experienciaText.match(/\d+/)?.[0] || '0');
+                const imagen = card.querySelector('img')?.src || '';
+                const ratingText = card.querySelector('.star-rating span')?.textContent || '0';
+                const rating = parseFloat(ratingText) || 0;
+
+                // Count stars to get estrellas value
+                const stars = card.querySelectorAll('.star-rating .fa-star:not(.fa-star-half-alt)').length;
+                const halfStars = card.querySelectorAll('.star-rating .fa-star-half-alt').length;
+                const estrellas = stars + (halfStars * 0.5);
+
+                // Create professional object
+                const professionalData = {
+                    nombre: nombre,
+                    profesion: profesion,
+                    experiencia: experiencia,
+                    imagen: imagen,
+                    rating: rating,
+                    estrellas: estrellas
+                };
+
+                // Store in localStorage
+                localStorage.setItem('selectedProfessional', JSON.stringify(professionalData));
+
+                // Navigate to profile page
+                window.location.href = 'perfilProfesional.html';
+            }
+        }
     });
 });
