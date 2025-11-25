@@ -153,6 +153,51 @@
         </div>
     </footer>
 
+    <!-- CHAT MODAL -->
+    <div id="chatModal" class="chat-modal">
+        <div class="chat-container">
+            <!-- Chat Header -->
+            <div class="chat-header">
+                <div class="chat-header-info">
+                    <img id="chat-profile-img" src="" alt="Profile" class="chat-profile-img">
+                    <div class="chat-header-text">
+                        <h6 id="chat-profile-name" class="mb-0">Nombre del Profesional</h6>
+                        <small class="chat-status">En línea</small>
+                    </div>
+                </div>
+                <button class="chat-close-btn" onclick="closeChat()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <!-- Chat Messages Area -->
+            <div class="chat-messages" id="chatMessages">
+                <!-- Welcome message -->
+                <div class="message-date">
+                    <span>Hoy</span>
+                </div>
+                <div class="message received">
+                    <div class="message-content">
+                        <p>¡Hola! Gracias por contactarme. ¿En qué puedo ayudarte?</p>
+                        <span class="message-time">10:30</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Input Area -->
+            <div class="chat-input-container">
+                <button class="chat-attach-btn" title="Adjuntar archivo">
+                    <i class="fas fa-paperclip"></i>
+                </button>
+                <input type="text" id="chatInput" class="chat-input" placeholder="Escribe un mensaje..."
+                    onkeypress="handleChatKeyPress(event)">
+                <button class="chat-send-btn" onclick="sendMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>
