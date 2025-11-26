@@ -1,4 +1,8 @@
-// Mock user data - This will be replaced with database data later
+////////////////////////////////////////////////////////
+// CONFIGURACIÓN INICIAL
+////////////////////////////////////////////////////////
+
+// Mock user data - REEMPLAZAR CON DATOS DE LA BASE DE DATOS
 let userData = {
     firstName: 'Juan',
     lastName: 'Pérez',
@@ -18,17 +22,44 @@ let userData = {
 // Store original data for cancel functionality
 let originalData = {};
 
+////////////////////////////////////////////////////////
+// INTEGRACIÓN CON BACKEND - PASO 1: CARGAR DATOS
+////////////////////////////////////////////////////////
+// Al cargar la página, reemplazar userData con datos del backend:
+//
+// async function fetchUserData() {
+//     try {
+//         const response = await fetch('/api/users/profile', {
+//             method: 'GET',
+//             headers: {
+//                 'Authorization': `Bearer ${localStorage.getItem('token')}`,
+//                 'Content-Type': 'application/json'
+//             }
+//         });
+//         
+//         if (response.ok) {
+//             userData = await response.json();
+//             loadUserData();
+//             originalData = JSON.parse(JSON.stringify(userData));
+//         } else {
+//             showNotification('Error al cargar datos del usuario', 'danger');
+//         }
+//     } catch (error) {
+//         console.error('Error:', error);
+//         showNotification('Error de conexión con el servidor', 'danger');
+//     }
+// }
+////////////////////////////////////////////////////////
+
 // Load user data when page loads
 document.addEventListener('DOMContentLoaded', function () {
+    // DESCOMENTAR CUANDO SE INTEGRE CON BACKEND:
+    // fetchUserData();
+
+    // CÓDIGO ACTUAL (MOCK DATA):
     loadUserData();
-    // Store original data
     originalData = JSON.parse(JSON.stringify(userData));
 });
-
-////////////////////////////////////////////////////////
-// EDITAR AL MOMENTO DE INTEGRAR CON EL BACKEND
-// Reemplazar userData con datos de la base de datos
-////////////////////////////////////////////////////////
 
 // Load user data into form fields
 function loadUserData() {
@@ -50,6 +81,10 @@ function loadUserData() {
     }
 }
 
+////////////////////////////////////////////////////////
+// FUNCIONES DE EDICIÓN
+////////////////////////////////////////////////////////
+
 // Toggle edit mode
 function toggleEdit() {
     const inputs = document.querySelectorAll('#accountForm input, #accountForm textarea');
@@ -57,9 +92,17 @@ function toggleEdit() {
     const saveBtn = document.getElementById('saveBtn');
     const cancelBtn = document.getElementById('cancelBtn');
 
-    // Enable all inputs except email (usually email shouldn't be changed easily)
+    // CAMPOS QUE PERMANECEN SIEMPRE DESHABILITADOS:
+    // - email (no se puede cambiar)
+    // - firstName (nombre - no se puede cambiar)
+    // - lastName (apellido - no se puede cambiar)
+    // - phone (teléfono - no se puede cambiar)
+
+    const disabledFields = ['email', 'firstName', 'lastName', 'phone'];
+
+    // Enable only editable inputs
     inputs.forEach(input => {
-        if (input.id !== 'email') {
+        if (!disabledFields.includes(input.id)) {
             input.disabled = false;
             input.classList.add('border-primary');
         }
@@ -94,12 +137,12 @@ function cancelEdit() {
     cancelBtn.classList.add('d-none');
 }
 
+////////////////////////////////////////////////////////
+// INTEGRACIÓN CON BACKEND - PASO 2: GUARDAR CAMBIOS
+////////////////////////////////////////////////////////
 // Save changes
 function saveChanges() {
-    // Get updated values
-    userData.firstName = document.getElementById('firstName').value;
-    userData.lastName = document.getElementById('lastName').value;
-    userData.phone = document.getElementById('phone').value;
+    // Get updated values (solo campos editables)
     userData.address = document.getElementById('address').value;
     userData.city = document.getElementById('city').value;
     userData.state = document.getElementById('state').value;
@@ -111,11 +154,52 @@ function saveChanges() {
     }
 
     ////////////////////////////////////////////////////////
-    // EDITAR AL MOMENTO DE INTEGRAR CON EL BACKEND
-    // Aquí se debe hacer una llamada API para guardar los datos
-    // Ejemplo: await fetch('/api/users/update', { method: 'PUT', body: JSON.stringify(userData) })
+    // INTEGRACIÓN CON BACKEND:
+    // Descomentar y ajustar el siguiente código cuando se conecte al backend
+    ////////////////////////////////////////////////////////
+    /*
+    async function updateUserData() {
+        try {
+            const response = await fetch('/api/users/profile', {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    address: userData.address,
+                    city: userData.city,
+                    state: userData.state,
+                    // Si es profesional, incluir datos profesionales:
+                    ...(userData.isProfessional && {
+                        profession: userData.profession,
+                        experience: userData.experience,
+                        description: userData.description
+                    })
+                })
+            });
+
+            if (response.ok) {
+                const updatedData = await response.json();
+                userData = updatedData;
+                originalData = JSON.parse(JSON.stringify(userData));
+                showNotification('Cambios guardados exitosamente', 'success');
+                disableEditMode();
+            } else {
+                showNotification('Error al guardar cambios', 'danger');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            showNotification('Error de conexión con el servidor', 'danger');
+        }
+    }
+    
+    updateUserData();
+    return; // Salir de la función para que no ejecute el código de abajo
+    */
     ////////////////////////////////////////////////////////
 
+    // CÓDIGO ACTUAL (SIN BACKEND):
     // Update original data
     originalData = JSON.parse(JSON.stringify(userData));
 
@@ -139,51 +223,9 @@ function saveChanges() {
     showNotification('Cambios guardados exitosamente', 'success');
 }
 
-// Change password
-function changePassword() {
-    const modal = new bootstrap.Modal(document.getElementById('changePasswordModal'));
-    modal.show();
-}
-
-// Submit password change
-function submitPasswordChange() {
-    const currentPassword = document.getElementById('currentPassword').value;
-    const newPassword = document.getElementById('newPassword').value;
-    const confirmPassword = document.getElementById('confirmPassword').value;
-
-    // Validation
-    if (!currentPassword || !newPassword || !confirmPassword) {
-        showNotification('Por favor, completa todos los campos', 'warning');
-        return;
-    }
-
-    if (newPassword !== confirmPassword) {
-        showNotification('Las contraseñas nuevas no coinciden', 'warning');
-        return;
-    }
-
-    if (newPassword.length < 8) {
-        showNotification('La contraseña debe tener al menos 8 caracteres', 'warning');
-        return;
-    }
-
-    ////////////////////////////////////////////////////////
-    // EDITAR AL MOMENTO DE INTEGRAR CON EL BACKEND
-    // Aquí se debe hacer una llamada API para cambiar la contraseña
-    // Ejemplo: await fetch('/api/users/change-password', { method: 'POST', body: JSON.stringify({ currentPassword, newPassword }) })
-    ////////////////////////////////////////////////////////
-
-    // Close modal
-    const modal = bootstrap.Modal.getInstance(document.getElementById('changePasswordModal'));
-    modal.hide();
-
-    // Clear form
-    document.getElementById('changePasswordForm').reset();
-
-    // Show success message
-    showNotification('Contraseña cambiada exitosamente', 'success');
-}
-
+////////////////////////////////////////////////////////
+// INTEGRACIÓN CON BACKEND - PASO 3: ELIMINAR CUENTA
+////////////////////////////////////////////////////////
 // Confirm delete account
 function confirmDeleteAccount() {
     const confirmText = document.getElementById('confirmDelete').value;
@@ -194,11 +236,51 @@ function confirmDeleteAccount() {
     }
 
     ////////////////////////////////////////////////////////
-    // EDITAR AL MOMENTO DE INTEGRAR CON EL BACKEND
-    // Aquí se debe hacer una llamada API para eliminar la cuenta
-    // Ejemplo: await fetch('/api/users/delete', { method: 'DELETE' })
+    // INTEGRACIÓN CON BACKEND:
+    // Descomentar y ajustar el siguiente código cuando se conecte al backend
+    ////////////////////////////////////////////////////////
+    /*
+    async function deleteUserAccount() {
+        try {
+            const response = await fetch('/api/users/account', {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                // Limpiar token y datos de sesión
+                localStorage.removeItem('token');
+                localStorage.removeItem('userData');
+                
+                // Close modal
+                const modal = bootstrap.Modal.getInstance(document.getElementById('deleteAccountModal'));
+                modal.hide();
+
+                // Show message and redirect
+                showNotification('Tu cuenta ha sido eliminada. Redirigiendo...', 'info');
+
+                // Redirect to login page after 2 seconds
+                setTimeout(() => {
+                    window.location.href = 'InicioSesion.html';
+                }, 2000);
+            } else {
+                showNotification('Error al eliminar la cuenta', 'danger');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            showNotification('Error de conexión con el servidor', 'danger');
+        }
+    }
+    
+    deleteUserAccount();
+    return; // Salir de la función para que no ejecute el código de abajo
+    */
     ////////////////////////////////////////////////////////
 
+    // CÓDIGO ACTUAL (SIN BACKEND):
     // Close modal
     const modal = bootstrap.Modal.getInstance(document.getElementById('deleteAccountModal'));
     modal.hide();
@@ -211,6 +293,10 @@ function confirmDeleteAccount() {
         window.location.href = 'InicioSesion.html';
     }, 2000);
 }
+
+////////////////////////////////////////////////////////
+// FUNCIONES AUXILIARES
+////////////////////////////////////////////////////////
 
 // Show notification (toast-style)
 function showNotification(message, type = 'info') {
@@ -240,3 +326,47 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+////////////////////////////////////////////////////////
+// RESUMEN DE INTEGRACIÓN CON BACKEND
+////////////////////////////////////////////////////////
+/*
+ENDPOINTS NECESARIOS:
+
+1. GET /api/users/profile
+   - Headers: Authorization: Bearer {token}
+   - Response: Objeto con datos del usuario
+   - Usar en: fetchUserData() al cargar la página
+
+2. PUT /api/users/profile
+   - Headers: Authorization: Bearer {token}, Content-Type: application/json
+   - Body: { address, city, state, profession?, experience?, description? }
+   - Response: Objeto con datos actualizados
+   - Usar en: saveChanges()
+
+3. DELETE /api/users/account
+   - Headers: Authorization: Bearer {token}
+   - Response: Confirmación de eliminación
+   - Usar en: confirmDeleteAccount()
+
+CAMPOS EDITABLES:
+- ✅ address (dirección)
+- ✅ city (ciudad)
+- ✅ state (estado)
+- ✅ profession (solo profesionales)
+- ✅ experience (solo profesionales)
+- ✅ description (solo profesionales)
+
+CAMPOS NO EDITABLES (SIEMPRE DESHABILITADOS):
+- ❌ firstName (nombre)
+- ❌ lastName (apellido)
+- ❌ email (correo electrónico)
+- ❌ phone (teléfono)
+
+PASOS PARA INTEGRAR:
+1. Descomentar la función fetchUserData() y llamarla en DOMContentLoaded
+2. Descomentar el código async en saveChanges()
+3. Descomentar el código async en confirmDeleteAccount()
+4. Ajustar las URLs de los endpoints según tu backend
+5. Verificar que el token se guarde correctamente en localStorage al hacer login
+*/
