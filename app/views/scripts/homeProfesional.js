@@ -39,21 +39,24 @@ let offers = [
         clientName: 'María González',
         message: 'Hola, necesito ayuda con una tubería que está goteando',
         timestamp: '2024-11-25T10:30:00',
-        unread: true
+        unread: true,
+        status: 'pending' // pending, accepted, rejected
     },
     {
         id: 2,
         clientName: 'Juan Pérez',
         message: 'Buenos días, ¿cuánto cobraría por instalar un lavabo?',
         timestamp: '2024-11-24T15:45:00',
-        unread: false
+        unread: false,
+        status: 'pending'
     },
     {
         id: 3,
         clientName: 'Ana Martínez',
         message: 'Necesito un mantenimiento preventivo urgente',
         timestamp: '2024-11-23T09:15:00',
-        unread: true
+        unread: true,
+        status: 'pending'
     }
 ];
 
@@ -174,8 +177,41 @@ function loadOffers() {
         const timeAgo = getTimeAgo(date);
         const unreadBadge = offer.unread ? '<span class="badge bg-danger ms-2">Nuevo</span>' : '';
 
+        // Determinar qué mostrar según el estado de la oferta
+        let actionButtons = '';
+        if (offer.status === 'accepted') {
+            // Mostrar badge de "Aceptada" en verde claro
+            actionButtons = `
+                <div class="d-flex flex-column gap-2">
+                    <button class="btn btn-sm btn-outline-primary" onclick="openChatWithClient(${offer.id})">
+                        <i class="fas fa-comment"></i> Responder
+                    </button>
+                    <span class="badge bg-success-subtle text-success-emphasis fs-6 py-2">
+                        <i class="fas fa-check-circle"></i> Aceptada
+                    </span>
+                </div>
+            `;
+        } else {
+            // Mostrar botones de acción para ofertas pendientes
+            actionButtons = `
+                <div class="d-flex flex-column gap-2">
+                    <button class="btn btn-sm btn-outline-primary" onclick="openChatWithClient(${offer.id})">
+                        <i class="fas fa-comment"></i> Responder
+                    </button>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-sm btn-success" onclick="acceptOffer(${offer.id})">
+                            <i class="fas fa-check"></i> Aceptar
+                        </button>
+                        <button class="btn btn-sm btn-danger" onclick="rejectOffer(${offer.id})">
+                            <i class="fas fa-times"></i> Rechazar
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
         return `
-            <div class="card mb-2 Borders ${offer.unread ? 'border-primary' : ''}">
+            <div class="card mb-2 Borders ${offer.unread ? 'border-primary' : ''} ${offer.status === 'accepted' ? 'border-success' : ''}">
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-start">
                         <div class="flex-grow-1">
@@ -189,11 +225,7 @@ function loadOffers() {
                                 <i class="fas fa-clock"></i> ${timeAgo}
                             </small>
                         </div>
-                        <div>
-                            <button class="btn btn-sm btn-outline-primary" onclick="openChatWithClient(${offer.id})">
-                                <i class="fas fa-comment"></i> Responder
-                            </button>
-                        </div>
+                        ${actionButtons}
                     </div>
                 </div>
             </div>
@@ -268,6 +300,122 @@ function openChatWithClient(offerId) {
     }
 }
 
+// Accept offer
+async function acceptOffer(offerId) {
+    const offer = offers.find(o => o.id === offerId);
+    if (!offer) {
+        showNotification('Oferta no encontrada', 'danger');
+        return;
+    }
+
+    // Confirmar acción
+    if (!confirm(`¿Estás seguro de que deseas aceptar la oferta de ${offer.clientName}?`)) {
+        return;
+    }
+
+    try {
+        // TODO: DESCOMENTAR Y AJUSTAR CUANDO SE INTEGRE CON BACKEND
+        /*
+        const response = await fetch(`/api/professionals/offers/${offerId}/accept`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                offerId: offerId
+            })
+        });
+
+        if (response.ok) {
+            const result = await response.json();
+            showNotification(`Oferta de ${offer.clientName} aceptada exitosamente`, 'success');
+            
+            // Actualizar el estado de la oferta a 'accepted'
+            const index = offers.findIndex(o => o.id === offerId);
+            if (index > -1) {
+                offers[index].status = 'accepted';
+                offers[index].unread = false; // Marcar como leída
+                loadOffers(); // Recargar la lista
+            }
+        } else {
+            const error = await response.json();
+            showNotification(error.message || 'Error al aceptar la oferta', 'danger');
+        }
+        */
+
+        // CÓDIGO TEMPORAL (MOCK) - ELIMINAR CUANDO SE INTEGRE CON BACKEND
+        showNotification(`Oferta de ${offer.clientName} aceptada exitosamente`, 'success');
+        const index = offers.findIndex(o => o.id === offerId);
+        if (index > -1) {
+            offers[index].status = 'accepted';
+            offers[index].unread = false; // Marcar como leída
+            loadOffers();
+        }
+
+    } catch (error) {
+        console.error('Error:', error);
+        showNotification('Error de conexión con el servidor', 'danger');
+    }
+}
+
+// Reject offer
+async function rejectOffer(offerId) {
+    const offer = offers.find(o => o.id === offerId);
+    if (!offer) {
+        showNotification('Oferta no encontrada', 'danger');
+        return;
+    }
+
+    // Confirmar acción
+    if (!confirm(`¿Estás seguro de que deseas rechazar la oferta de ${offer.clientName}?`)) {
+        return;
+    }
+
+    try {
+        // TODO: DESCOMENTAR Y AJUSTAR CUANDO SE INTEGRE CON BACKEND
+        /*
+        const response = await fetch(`/api/professionals/offers/${offerId}/reject`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                offerId: offerId
+            })
+        });
+
+        if (response.ok) {
+            const result = await response.json();
+            showNotification(`Oferta de ${offer.clientName} rechazada`, 'info');
+            
+            // Remover la oferta de la lista local
+            const index = offers.findIndex(o => o.id === offerId);
+            if (index > -1) {
+                offers.splice(index, 1);
+                loadOffers(); // Recargar la lista
+            }
+        } else {
+            const error = await response.json();
+            showNotification(error.message || 'Error al rechazar la oferta', 'danger');
+        }
+        */
+
+        // CÓDIGO TEMPORAL (MOCK) - ELIMINAR CUANDO SE INTEGRE CON BACKEND
+        showNotification(`Oferta de ${offer.clientName} rechazada`, 'info');
+        const index = offers.findIndex(o => o.id === offerId);
+        if (index > -1) {
+            offers.splice(index, 1);
+            loadOffers();
+        }
+
+    } catch (error) {
+        console.error('Error:', error);
+        showNotification('Error de conexión con el servidor', 'danger');
+    }
+}
+
 ////////////////////////////////////////////////////////
 // FUNCIONES AUXILIARES
 ////////////////////////////////////////////////////////
@@ -336,6 +484,18 @@ ENDPOINTS NECESARIOS:
    - Formato: [{ id, clientName, message, timestamp, unread }]
    - Usar en: fetchOffers() al cargar la página
 
+4. POST /api/professionals/offers/{offerId}/accept
+   - Headers: Authorization: Bearer {token}, Content-Type: application/json
+   - Body: { offerId: number }
+   - Response: Objeto con resultado de la operación
+   - Usar en: acceptOffer() cuando el profesional acepta una oferta
+
+5. POST /api/professionals/offers/{offerId}/reject
+   - Headers: Authorization: Bearer {token}, Content-Type: application/json
+   - Body: { offerId: number }
+   - Response: Objeto con resultado de la operación
+   - Usar en: rejectOffer() cuando el profesional rechaza una oferta
+
 DATOS QUE SE MUESTRAN:
 - Nombre completo del profesional
 - Calificación (rating)
@@ -346,6 +506,8 @@ DATOS QUE SE MUESTRAN:
   - Tiempo transcurrido
   - Estado (leído/no leído)
   - Botón para responder
+  - Botón para aceptar oferta
+  - Botón para rechazar oferta
 - Lista de servicios con:
   - Nombre del servicio
   - Descripción
@@ -358,5 +520,6 @@ PASOS PARA INTEGRAR:
 3. Ajustar las URLs de los endpoints según tu backend
 4. Verificar que el token se guarde correctamente en localStorage al hacer login
 5. Implementar la función openChatWithClient() para abrir el sistema de chat
-6. La edición de servicios se hace desde CuentaProfesional.html
+6. Descomentar las llamadas a API en acceptOffer() y rejectOffer()
+7. La edición de servicios se hace desde CuentaProfesional.html
 */

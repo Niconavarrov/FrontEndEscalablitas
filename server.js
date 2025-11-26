@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
 });
 
 // Rutas para las diferentes páginas HTML
-app.get('/perfil-profesional', (req, res) => {
+app.get('/perfil-de-profesional', (req, res) => {
     res.sendFile(path.join(__dirname, 'app', 'views', 'perfilProfesional.html'));
 });
 
@@ -44,27 +44,15 @@ app.get('/cuenta', (req, res) => {
     res.sendFile(path.join(__dirname, 'app', 'views', 'Cuenta.html'));
 });
 
-//app.get('/inicio-sesion', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'app', 'views', 'InicioSesion.html'));
-//});
-
 app.get('/registro', (req, res) => {
     res.sendFile(path.join(__dirname, 'app', 'views', 'Registro.html'));
 });
 
 // Ruta para clientes
-app.get('/clientes/home', (req, res) => {
-    res.sendFile(path.join(__dirname, 'app', 'views', 'clientes', 'home.html'));
+app.get('/home', (req, res) => {
+    res.sendFile(path.join(__dirname, 'app', 'views', 'home.html'));
 });
 
-app.get('/clientes/cuenta', (req, res) => {
-    res.sendFile(path.join(__dirname, 'app', 'views', 'clientes', 'Cuenta.html'));
-});
-
-// Ruta para profesionales
-app.get('/profesionales/perfil', (req, res) => {
-    res.sendFile(path.join(__dirname, 'app', 'views', 'profesionales', 'perfilProfesional.html'));
-});
 
 // API Proxy (opcional - para cuando tengas backend)
 // Descomentar cuando tengas el backend corriendo
@@ -142,9 +130,6 @@ app.listen(PORT, () => {
     console.log(`   - http://localhost:${PORT}/cuenta-profesional`);
     console.log(`   - http://localhost:${PORT}/home-profesional`);
     console.log(`   - http://localhost:${PORT}/cuenta`);
-    console.log(`   - http://localhost:${PORT}/inicio-sesion`);
     console.log(`   - http://localhost:${PORT}/registro`);
-    console.log(`   - http://localhost:${PORT}/clientes/home`);
-    console.log(`   - http://localhost:${PORT}/clientes/cuenta`);
-    console.log(`   - http://localhost:${PORT}/profesionales/perfil`);
+    console.log(`   - http://localhost:${PORT}/home`);
 });
