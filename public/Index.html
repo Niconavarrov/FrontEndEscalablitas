@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido a Home-Connect</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/07b7b4af07.js" crossorigin="anonymous"></script>
+    <style>
+        /* Estilos específicos para el carrusel de la landing page */
+        .carousel-item {
+            height: 60vh;
+            min-height: 400px;
+            background: no-repeat center center scroll;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+        .carousel-caption {
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        /* Ajuste para que el footer se quede abajo si el contenido es corto */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-sm navbar-dark" id="navbar-principal">
+        <div class="container-fluid">
+            <ul class="navbar-nav">
+                <li class="logo-navbar">
+                    <a class="nav-link" href="" id="logo">Home-Connect</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav" id="sesion-navbar">
+                <li class="nav-item">
+                    <a class="nav-link" href="/FAQs" style="color:white;">
+                        <i class="fa-solid fa-comments"></i> FAQs
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/InicioSesion" style="color:white;">
+                        <i class="fa-solid fa-user" style="color:white;"></i> Iniciar Sesion
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Registro" style="color:white;">
+                        <button class="btn btn-light" style="shape-margin: 10px;" id="registrarse">Registrarse</button>
+
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- Brief Intro Section -->
+        <div class="container mt-5 mb-5 text-center">
+            <h2>Bienvenido a Home-Connect</h2>
+            <p class="lead text-muted">La forma más fácil de conectar con profesionales para el mantenimiento y mejora
+                de tu hogar.</p>
+            <a href="/InicioSesion" class="btn btn-primary btn-lg mt-3" id="ColorButton">Comenzar
+                Ahora</a>
+        </div>
+        <!-- CAROUSEL -->
+        <div id="landingCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#landingCarousel" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#landingCarousel" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#landingCarousel" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <img src="../images/Plomero.jpg" class="d-block w-100"
+                        style="height: 60vh; object-fit: cover; filter: brightness(0.7);" alt="Servicios de Plomería">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Encuentra Profesionales de Confianza</h3>
+                        <p>Conecta con plomeros, electricistas y más expertos verificados para tu hogar.</p>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <img src="../images/Carpintero.jpg" class="d-block w-100"
+                        style="height: 60vh; object-fit: cover; filter: brightness(0.7);"
+                        alt="Servicios de Carpintería">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Soluciones Rápidas y Seguras</h3>
+                        <p>Gestiona tus citas y contratos de forma sencilla y segura desde nuestra plataforma.</p>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="carousel-item">
+                    <img src="../images/Jardinero.jpg" class="d-block w-100"
+                        style="height: 60vh; object-fit: cover; filter: brightness(0.7);" alt="Servicios de Jardinería">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Transforma tu Hogar</h3>
+                        <p>Desde reparaciones pequeñas hasta grandes proyectos, estamos aquí para ayudarte.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#landingCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#landingCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button>
+        </div>
+
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="footer-principal">
+        <div class="container-fluid" id="DivBotones">
+            <h4 style="color: white;">Home-Connect &copy; 2024</h4>
+        </div>
+    </footer>
+
+</body>
+
+</html>

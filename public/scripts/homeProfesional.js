@@ -247,7 +247,7 @@ function loadServices() {
                 <i class="fas fa-tools fa-4x text-muted mb-3"></i>
                 <h5 class="text-muted">No tienes servicios registrados</h5>
                 <p class="text-muted">Haz clic en "Gestionar Servicios" o "Editar Perfil" para agregar tus primeros servicios.</p>
-                <a href="CuentaProfesional.html" class="btn btn-primary mt-3" id="ColorButton">
+                <a href="/cuenta-profesional" class="btn btn-primary mt-3" id="ColorButton">
                     <i class="fas fa-plus"></i> Agregar Servicios
                 </a>
             </div>
@@ -279,7 +279,7 @@ function loadServices() {
         </div>
         
         <div class="text-center mt-4">
-            <a href="CuentaProfesional.html" class="btn btn-outline-primary">
+            <a href="/cuenta-profesional" class="btn btn-outline-primary">
                 <i class="fas fa-edit"></i> Editar Servicios
             </a>
         </div>

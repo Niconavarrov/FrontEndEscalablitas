@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Mi Cuenta - Home-Connect</title>
-    <script src="scripts/cuenta.js"></script>
-    <link rel="stylesheet" href="styles/styles.css">
+    <title>Mi Cuenta Profesional - Home-Connect</title>
+    <script src="../scripts/cuentaProfesional.js"></script>
+    <link rel="stylesheet" href="../styles/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/07b7b4af07.js" crossorigin="anonymous"></script>
@@ -17,17 +17,17 @@
         <div class="container-fluid">
             <ul class="navbar-nav">
                 <li class="logo-navbar">
-                    <a class="nav-link" href="home.html" id="logo">Home-Connect</a>
+                    <a class="nav-link" href="/home-profesional" id="logo">Home-Connect</a>
                 </li>
             </ul>
             <ul class="navbar-nav" id="sesion-navbar">
                 <li class="nav-item">
-                    <a class="nav-link" href="Cuenta.html" style="color:white;">
+                    <a class="nav-link" href="/cuenta-profesional" style="color:white;">
                         <i class="fa-solid fa-user" style="color:white;"></i> Cuenta
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="InicioSesion.html" style="color:white;">
+                    <a class="nav-link" href="/InicioSesion" style="color:white;">
                         <button class="btn btn-light" style="shape-margin: 10px;" id="registrarse">Cerrar
                             Sesion</button>
                     </a>
@@ -40,18 +40,16 @@
     <div class="container" style="padding: 20px; max-width: 900px;">
         <!-- Back Button -->
         <div class="mb-3">
-            <a href="home.html" class="btn btn-outline-secondary">
-                <i class="fas fa-arrow-left"></i> Volver al Home
+            <a href="/home-profesional" class="btn btn-outline-secondary">
+                <i class="fas fa-arrow-left"></i> Volver
             </a>
         </div>
 
         <!-- Page Title -->
         <div class="text-center mb-4">
-            <h1><i class="fas fa-user-circle"></i> Mi Cuenta</h1>
-            <p class="text-muted">Administra tu información personal y configuración</p>
+            <h1><i class="fas fa-user-circle"></i> Mi Cuenta Profesional</h1>
+            <p class="text-muted">Administra tu información personal, profesional y servicios</p>
         </div>
-
-
 
         <!-- Personal Information Section -->
         <div class="card mb-4 Borders">
@@ -81,48 +79,16 @@
                         <input type="tel" class="form-control" id="phone" disabled>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="address" class="form-label">Dirección</label>
-                        <input type="text" class="form-control" id="address" disabled>
-                    </div>
-
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <label for="city" class="form-label">Ciudad</label>
-                            <input type="text" class="form-control" id="city" disabled>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="state" class="form-label">Estado</label>
-                            <input type="text" class="form-control" id="state" disabled>
-                        </div>
-                    </div>
-
-                    <div class="d-flex gap-2">
-                        <button type="button" class="btn btn-primary" id="ColorButton" onclick="toggleEdit()">
-                            <i class="fas fa-edit"></i> Editar Información
-                        </button>
-                        <button type="button" class="btn btn-success d-none" id="saveBtn" onclick="saveChanges()">
-                            <i class="fas fa-save"></i> Guardar Cambios
-                        </button>
-                        <button type="button" class="btn btn-secondary d-none" id="cancelBtn" onclick="cancelEdit()">
-                            <i class="fas fa-times"></i> Cancelar
-                        </button>
-                    </div>
                 </form>
             </div>
         </div>
 
-        <!-- Account Type Section (for professionals) -->
-        <div class="card mb-4 Borders" id="professionalSection" style="display: none;">
+        <!-- Professional Information Section -->
+        <div class="card mb-4 Borders">
             <div class="card-header bg-white">
                 <h5 class="mb-0"><i class="fas fa-briefcase"></i> Información Profesional</h5>
             </div>
             <div class="card-body">
-                <div class="mb-3">
-                    <label for="profession" class="form-label">Profesión</label>
-                    <input type="text" class="form-control" id="profession" disabled>
-                </div>
-
                 <div class="mb-3">
                     <label for="experience" class="form-label">Años de Experiencia</label>
                     <input type="number" class="form-control" id="experience" disabled>
@@ -149,6 +115,22 @@
             </div>
         </div>
 
+        <!-- Services Section -->
+        <div class="card mb-4 Borders">
+            <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                <h5 class="mb-0"><i class="fas fa-tools"></i> Mis Servicios</h5>
+                <button type="button" class="btn btn-sm btn-primary" id="ColorButton" data-bs-toggle="modal"
+                    data-bs-target="#addServiceModal">
+                    <i class="fas fa-plus"></i> Agregar Servicio
+                </button>
+            </div>
+            <div class="card-body">
+                <div id="servicesList">
+                    <!-- Services will be loaded here dynamically -->
+                </div>
+            </div>
+        </div>
+
         <!-- Danger Zone -->
         <div class="card mb-4 border-danger">
             <div class="card-header bg-danger text-white">
@@ -163,6 +145,50 @@
                     data-bs-target="#deleteAccountModal">
                     <i class="fas fa-trash-alt"></i> Eliminar Cuenta
                 </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Service Modal -->
+    <div class="modal fade" id="addServiceModal" tabindex="-1" aria-labelledby="addServiceModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addServiceModalLabel">
+                        <i class="fas fa-tools"></i> <span id="modalTitle">Agregar Servicio</span>
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="serviceForm">
+                        <input type="hidden" id="serviceId" value="">
+
+                        <div class="mb-3">
+                            <label for="serviceName" class="form-label">Nombre del Servicio</label>
+                            <input type="text" class="form-control" id="serviceName" required
+                                placeholder="Ej. Reparación de tuberías">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="serviceDescription" class="form-label">Descripción</label>
+                            <textarea class="form-control" id="serviceDescription" rows="3" required
+                                placeholder="Describe en qué consiste el servicio"></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="serviceDuration" class="form-label">Duración Estimada</label>
+                            <input type="text" class="form-control" id="serviceDuration" required
+                                placeholder="Ej. 2 horas">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="ColorButton" onclick="saveService()">
+                        <i class="fas fa-save"></i> Guardar Servicio
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -183,8 +209,9 @@
                     <p><strong>¿Estás seguro de que deseas eliminar tu cuenta?</strong></p>
                     <p class="text-muted">Esta acción es permanente y no se puede deshacer. Se eliminarán:</p>
                     <ul class="text-muted">
-                        <li>Toda tu información personal</li>
-                        <li>Tu historial de servicios</li>
+                        <li>Toda tu información personal y profesional</li>
+                        <li>Todos tus servicios registrados</li>
+                        <li>Tu historial de trabajos</li>
                         <li>Tus reseñas y calificaciones</li>
                         <li>Tus mensajes y conversaciones</li>
                     </ul>
@@ -202,43 +229,6 @@
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                     <button type="button" class="btn btn-danger" onclick="confirmDeleteAccount()">
                         <i class="fas fa-trash-alt"></i> Sí, Eliminar Mi Cuenta
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Change Password Modal -->
-    <div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="changePasswordModalLabel">
-                        <i class="fas fa-key"></i> Cambiar Contraseña
-                    </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="changePasswordForm">
-                        <div class="mb-3">
-                            <label for="currentPassword" class="form-label">Contraseña Actual</label>
-                            <input type="password" class="form-control" id="currentPassword" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="newPassword" class="form-label">Nueva Contraseña</label>
-                            <input type="password" class="form-control" id="newPassword" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="confirmPassword" class="form-label">Confirmar Nueva Contraseña</label>
-                            <input type="password" class="form-control" id="confirmPassword" required>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" id="ColorButton" onclick="submitPasswordChange()">
-                        <i class="fas fa-save"></i> Guardar Nueva Contraseña
                     </button>
                 </div>
             </div>

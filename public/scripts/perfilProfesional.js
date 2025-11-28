@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('chat-profile-name').textContent = professionalData.nombre;
     } else {
         // If no data, redirect to home
-        window.location.href = 'home.html';
+        window.location.href = '/home';
     }
 });
 

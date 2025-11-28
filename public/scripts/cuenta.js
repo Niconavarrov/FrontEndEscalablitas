@@ -264,7 +264,7 @@ function confirmDeleteAccount() {
 
                 // Redirect to login page after 2 seconds
                 setTimeout(() => {
-                    window.location.href = 'InicioSesion.html';
+                    window.location.href = '/InicioSesion';
                 }, 2000);
             } else {
                 showNotification('Error al eliminar la cuenta', 'danger');
@@ -290,7 +290,7 @@ function confirmDeleteAccount() {
 
     // Redirect to login page after 2 seconds
     setTimeout(() => {
-        window.location.href = 'InicioSesion.html';
+        window.location.href = '/InicioSesion';
     }, 2000);
 }
 

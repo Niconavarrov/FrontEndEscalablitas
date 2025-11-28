@@ -20,37 +20,54 @@ app.use((req, res, next) => {
 
 // Servir archivos estáticos desde la carpeta 'app/views'
 // NOTA: Más adelante moveremos esto a 'public/'
-app.use(express.static(path.join(__dirname, 'app', 'views')));
+app.use(express.static(path.join(__dirname, 'public')));
 
-// Ruta principal - servir home.html
+// Ruta principal - servir Index.html
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'app', 'views', 'InicioSesion.html'));
+    res.sendFile(path.join(__dirname, 'public', 'Index.html'));
 });
 
 // Rutas para las diferentes páginas HTML
+app.get('/InicioSesion', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'views', 'InicioSesion.html'));
+});
+
 app.get('/perfil-de-profesional', (req, res) => {
-    res.sendFile(path.join(__dirname, 'app', 'views', 'perfilProfesional.html'));
+    res.sendFile(path.join(__dirname, 'public', 'views', 'perfilProfesional.html'));
 });
 
 app.get('/cuenta-profesional', (req, res) => {
-    res.sendFile(path.join(__dirname, 'app', 'views', 'CuentaProfesional.html'));
+    res.sendFile(path.join(__dirname, 'public', 'views', 'CuentaProfesional.html'));
 });
 
+// Ruta para Home pro
 app.get('/home-profesional', (req, res) => {
-    res.sendFile(path.join(__dirname, 'app', 'views', 'homeProfesional.html'));
+    res.sendFile(path.join(__dirname, 'public', 'views', 'homeProfesional.html'));
 });
 
 app.get('/cuenta', (req, res) => {
-    res.sendFile(path.join(__dirname, 'app', 'views', 'Cuenta.html'));
+    res.sendFile(path.join(__dirname, 'public', 'views', 'Cuenta.html'));
 });
 
 app.get('/registro', (req, res) => {
-    res.sendFile(path.join(__dirname, 'app', 'views', 'Registro.html'));
+    res.sendFile(path.join(__dirname, 'public', 'views', 'Registro.html'));
 });
 
-// Ruta para clientes
+app.get('/TyC', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'views', 'terminos.html'));
+});
+
+app.get('/privacidad', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'views', 'privacidad.html'));
+});
+
+// Ruta para Home clientes
 app.get('/home', (req, res) => {
-    res.sendFile(path.join(__dirname, 'app', 'views', 'home.html'));
+    res.sendFile(path.join(__dirname, 'public', 'views', 'home.html'));
+});
+
+app.get('/FAQs', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'views', 'FAQs.html'));
 });
 
 
