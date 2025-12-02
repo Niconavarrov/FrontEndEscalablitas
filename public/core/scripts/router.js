@@ -15,16 +15,17 @@ router.use((req, res, next) => {
 router.get('/', (req, res) => { res.sendFile(path.join(process.cwd(), 'public', 'Index.html')); });
 
 // Rutas para las diferentes páginas HTML
-router.get('/InicioSesion', (req, res) => { res.sendFile(path.join(process.cwd(), 'public', 'views', 'InicioSesion.html')); });
-router.get('/perfil-de-profesional', (req, res) => { res.sendFile(path.join(process.cwd(), 'public', 'views', 'perfilProfesional.html')); });
-router.get('/cuenta-profesional', (req, res) => { res.sendFile(path.join(process.cwd(), 'public', 'views', 'CuentaProfesional.html')); });
-router.get('/home-profesional', (req, res) => { res.sendFile(path.join(process.cwd(), 'public', 'views', 'homeProfesional.html')); });
-router.get('/cuenta', (req, res) => { res.sendFile(path.join(process.cwd(), 'public', 'views', 'Cuenta.html')); });
-router.get('/registro', (req, res) => { res.sendFile(path.join(process.cwd(), 'public', 'views', 'Registro.html')); });
-router.get('/TyC', (req, res) => { res.sendFile(path.join(process.cwd(), 'public', 'views', 'terminos.html')); });
-router.get('/privacidad', (req, res) => { res.sendFile(path.join(process.cwd(), 'public', 'views', 'privacidad.html')); });
-router.get('/home', (req, res) => { res.sendFile(path.join(process.cwd(), 'public', 'views', 'home.html')); });
-router.get('/FAQs', (req, res) => { res.sendFile(path.join(process.cwd(), 'public', 'views', 'FAQs.html')); });
+router.get('/InicioSesion', (req, res) => { res.sendFile(path.join(process.cwd(), 'public', 'login', 'views', 'InicioSesion.html')); });
+router.get('/perfil-de-profesional', (req, res) => { res.sendFile(path.join(process.cwd(), 'public', 'perfilProfesional', 'views', 'perfilProfesional.html')); });
+router.get('/cuenta-profesional', (req, res) => { res.sendFile(path.join(process.cwd(), 'public', 'cuentaProfesional', 'views', 'CuentaProfesional.html')); });
+router.get('/home-profesional', (req, res) => { res.sendFile(path.join(process.cwd(), 'public', 'homeProfesional', 'views', 'homeProfesional.html')); });
+router.get('/cuenta', (req, res) => { res.sendFile(path.join(process.cwd(), 'public', 'cuentaCliente', 'views', 'Cuenta.html')); });
+router.get('/registro', (req, res) => { res.sendFile(path.join(process.cwd(), 'public', 'register', 'views', 'Registro.html')); });
+router.get('/TyC', (req, res) => { res.sendFile(path.join(process.cwd(), 'public', 'register', 'views', 'terminos.html')); });
+router.get('/privacidad', (req, res) => { res.sendFile(path.join(process.cwd(), 'public', 'register', 'views', 'privacidad.html')); });
+router.get('/home', (req, res) => { res.sendFile(path.join(process.cwd(), 'public', 'homeCliente', 'views', 'home.html')); });
+router.get('/FAQs', (req, res) => { res.sendFile(path.join(process.cwd(), 'public', 'core', 'views', 'FAQs.html')); });
+router.get('/verification', (req, res) => { res.sendFile(path.join(process.cwd(), 'public', 'EmailVerification', 'views', 'verification.html')); });
 
 // Manejo de errores 404
 router.use((req, res) => {

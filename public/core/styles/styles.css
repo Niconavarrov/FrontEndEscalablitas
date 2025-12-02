@@ -643,3 +643,83 @@ main.auth {
 #CuadroChat {
   width: 100%;
 }
+/* ======================================
+   VERIFICACION DE EMAIL
+   ====================================== */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f2f5;
+}
+
+.login-box {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .06);
+  border: 2.5px solid #000;
+  text-align: center;
+  max-width: 500px;
+  width: 90%;
+}
+
+.login-box .logo img {
+  width: 80px;
+  margin-bottom: 10px;
+}
+
+.login-box h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #7b4df1;
+}
+
+.login-box h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.verification-msg {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+.botones {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.verifybtn, .resendbtn {
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+}
+
+.verifybtn {
+  background-color: #7b4df1;
+  color: white;
+}
+
+.verifybtn:hover {
+  background-color: #6a3de0;
+}
+
+.resendbtn {
+  background-color: transparent;
+  color: #7b4df1;
+  border: 2px solid #7b4df1;
+}
+
+.resendbtn:hover {
+  background-color: #f0f0f0;
+}
+

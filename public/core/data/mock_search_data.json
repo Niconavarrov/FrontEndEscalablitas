@@ -1,0 +1,87 @@
+{
+    "services": [
+        {
+            "id": "uuid-s1",
+            "name": "Reparación de Tuberías",
+            "description": "Servicio de Plomero experto para reparación de fugas y tuberías rotas.",
+            "category_id": "uuid-c1",
+            "professional_id": "uuid-p1",
+            "rating": 4.8,
+            "price_range": "$500 - $1500",
+            "image": "../core/images/Plomero.jpg"
+        },
+        {
+            "id": "uuid-s2",
+            "name": "Instalación Eléctrica",
+            "description": "Servicio de Electricista para instalación completa de cableado y tomas de corriente.",
+            "category_id": "uuid-c2",
+            "professional_id": "uuid-p2",
+            "rating": 4.5,
+            "price_range": "$800 - $2000",
+            "image": "../core/images/Electricista.jpg"
+        },
+        {
+            "id": "uuid-s3",
+            "name": "Muebles a Medida",
+            "description": "Servicio de Carpintero para diseño y construcción de muebles de madera personalizados.",
+            "category_id": "uuid-c3",
+            "professional_id": "uuid-p3",
+            "rating": 4.9,
+            "price_range": "$2000+",
+            "image": "../core/images/Carpintero.jpg"
+        }
+    ],
+    "categories": [
+        {
+            "id": "uuid-c1",
+            "name": "Plomeros",
+            "icon": "fa-faucet"
+        },
+        {
+            "id": "uuid-c2",
+            "name": "Electricistas",
+            "icon": "fa-bolt"
+        },
+        {
+            "id": "uuid-c3",
+            "name": "Carpinteros",
+            "icon": "fa-hammer"
+        }
+    ],
+    "history": [
+        {
+            "query": "Plomero",
+            "timestamp": "2024-05-20T10:00:00Z"
+        },
+        {
+            "query": "Electricista urgente",
+            "timestamp": "2024-05-21T14:30:00Z"
+        }
+    ],
+    "professionals": [
+        {
+            "id": "uuid-p1",
+            "name": "Roberto Sánchez",
+            "profession": "Plomero",
+            "experience": 10,
+            "rating": 4.8,
+            "image": "../core/images/Plomero.jpg"
+        },
+        {
+            "id": "uuid-p2",
+            "name": "Juan González",
+            "profession": "Electricista",
+            "experience": 6,
+            "rating": 4.5,
+            "image": "../core/images/Electricista.jpg"
+        },
+        {
+            "id": "uuid-p3",
+            "name": "Ale Calvillo",
+            "profession": "Carpintero",
+            "experience": 15,
+            "rating": 4.9,
+            "image": "../core/images/Carpintero.jpg"
+        }
+    ]
+}
