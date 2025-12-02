@@ -62,26 +62,22 @@
                     <!-- DIV BOTONES CATEGORIAS -->
                     <div class="row" id="DivBotones" style="margin-left: 1px; margin-right: 1px;">
                         <div class="col-sm" id="BtnServicios">
-                            <button class="btn btn-secondary categoria-btn" id="Borders" data-bs-toggle="modal"
-                                data-bs-target="#serviciosModal" data-categoria="plomeros">
+                            <button class="btn btn-secondary categoria-btn" id="Borders" data-categoria="plomeros">
                                 Plomeros
                             </button>
                         </div>
                         <div class="col-sm" id="BtnServicios">
-                            <button class="btn btn-secondary categoria-btn" id="Borders" data-bs-toggle="modal"
-                                data-bs-target="#serviciosModal" data-categoria="carpinteros">
+                            <button class="btn btn-secondary categoria-btn" id="Borders" data-categoria="carpinteros">
                                 Carpinteros
                             </button>
                         </div>
                         <div class="col-sm" id="BtnServicios">
-                            <button class="btn btn-secondary categoria-btn" id="Borders" data-bs-toggle="modal"
-                                data-bs-target="#serviciosModal" data-categoria="cerrajeros">
+                            <button class="btn btn-secondary categoria-btn" id="Borders" data-categoria="cerrajeros">
                                 Cerrajeros
                             </button>
                         </div>
                         <div class="col-sm" id="BtnServicios">
-                            <button class="btn btn-secondary categoria-btn" id="Borders" data-bs-toggle="modal"
-                                data-bs-target="#serviciosModal" data-categoria="fontaneros">
+                            <button class="btn btn-secondary categoria-btn" id="Borders" data-categoria="fontaneros">
                                 Fontaneros
                             </button>
                         </div>
@@ -146,29 +142,6 @@
                             </div>
                         </div>
 
-                        <!-- DIV MODAL PARA PROFESIONALES -->
-                        <div class="modal fade" id="serviciosModal" tabindex="-1" aria-labelledby="serviciosModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="serviciosModalLabel">Profesionales Disponibles</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="row row-cols-1 row-cols-md-2 g-4" id="modalCards">
-                                            <!-- Las cards se generarán dinámicamente aquí -->
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Cerrar</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
 
@@ -201,15 +174,6 @@
                     </div>
                 </div>
 
-                <!-- DIV HISTORIAL-->
-                <div class="Borders" style="margin-top: 10px; padding: 15px;" id="Borders">
-                    <h3>Historial de Servicios</h3>
-                    <!-- Grid de Cards 3x2 -->
-                    <div class="row row-cols-3 g-3" id="historial-grid">
-                        <!-- Dynamic content will be inserted here -->
-                    </div>
-                </div>
-
 
             </div>
 
@@ -222,6 +186,11 @@
 
                 </div>
 
+                <div class="Borders" style="display: flex; flex-direction: column; margin-bottom: 10px;"
+                    id="DivCitasPasadas">
+                    <h3>Citas Pasadas</h3>
+
+                </div>
 
             </div>
         </div>
@@ -235,6 +204,81 @@
         </footer>
 
 
+        <!-- MODAL DE DETALLES DE CONTRATO -->
+        <div class="modal fade" id="contractDetailsModal" tabindex="-1" aria-labelledby="contractDetailsModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary text-white">
+                        <h5 class="modal-title" id="contractDetailsModalLabel">
+                            <i class="fas fa-file-contract"></i> Detalles del Contrato
+                        </h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <h6 class="text-muted mb-2">Título del Servicio</h6>
+                                <p class="fw-bold" id="modal-contract-title">-</p>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <h6 class="text-muted mb-2"><i class="fas fa-calendar"></i> Fecha</h6>
+                                <p id="modal-contract-date">-</p>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="text-muted mb-2"><i class="fas fa-clock"></i> Hora de Inicio</h6>
+                                <p id="modal-contract-time">-</p>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <h6 class="text-muted mb-2"><i class="fas fa-info-circle"></i> Detalles</h6>
+                                <p id="modal-contract-details">-</p>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <h6 class="text-muted mb-2"><i class="fas fa-credit-card"></i> Método de Pago</h6>
+                                <p id="modal-contract-payment">-</p>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="text-muted mb-2"><i class="fas fa-dollar-sign"></i> Monto</h6>
+                                <p class="fw-bold text-success" id="modal-contract-amount">-</p>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <h6 class="text-muted mb-2"><i class="fas fa-user-tie"></i> Profesional</h6>
+                                <p id="modal-contract-professional">-</p>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="text-muted mb-2"><i class="fas fa-phone"></i> Teléfono</h6>
+                                <p id="modal-contract-phone">-</p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h6 class="text-muted mb-2"><i class="fas fa-check-circle"></i> Estado</h6>
+                                <span class="badge bg-success" id="modal-contract-status">Aceptado</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 </body>
+
 
 </html>

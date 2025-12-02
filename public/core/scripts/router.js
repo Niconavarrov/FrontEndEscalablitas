@@ -26,6 +26,7 @@ router.get('/privacidad', (req, res) => { res.sendFile(path.join(process.cwd(), 
 router.get('/home', (req, res) => { res.sendFile(path.join(process.cwd(), 'public', 'homeCliente', 'views', 'home.html')); });
 router.get('/FAQs', (req, res) => { res.sendFile(path.join(process.cwd(), 'public', 'core', 'views', 'FAQs.html')); });
 router.get('/verification', (req, res) => { res.sendFile(path.join(process.cwd(), 'public', 'EmailVerification', 'views', 'verification.html')); });
+router.get('/chats', (req, res) => { res.sendFile(path.join(process.cwd(), 'public', 'chatsService', 'views', 'chats.html')); });
 
 // Manejo de errores 404
 router.use((req, res) => {

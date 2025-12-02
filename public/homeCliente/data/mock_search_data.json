@@ -1,0 +1,457 @@
+{
+    "services": [
+        {
+            "id": "uuid-s1",
+            "name": "Reparación de Tuberías",
+            "description": "Servicio de Plomero experto para reparación de fugas y tuberías rotas.",
+            "duration_hrs": 2,
+            "category_fk": "uuid-c1",
+            "years_of_experience": 10,
+            "rating": 4.8,
+            "price_range": "$500 - $1500",
+            "image": "../core/images/Plomero.jpg",
+            "professional_name": "Roberto Sánchez",
+            "schedule": {
+                "monday": {
+                    "start_time": "09:00",
+                    "end_time": "18:00"
+                },
+                "tuesday": {
+                    "start_time": "09:00",
+                    "end_time": "18:00"
+                },
+                "wednesday": {
+                    "start_time": "09:00",
+                    "end_time": "18:00"
+                },
+                "thursday": {
+                    "start_time": "09:00",
+                    "end_time": "18:00"
+                },
+                "friday": {
+                    "start_time": "09:00",
+                    "end_time": "18:00"
+                },
+                "saturday": {
+                    "start_time": "10:00",
+                    "end_time": "14:00"
+                },
+                "sunday": {
+                    "start_time": null,
+                    "end_time": null
+                }
+            }
+        },
+        {
+            "id": "uuid-s2",
+            "name": "Instalación Eléctrica",
+            "description": "Servicio de Electricista para instalación completa de cableado y tomas de corriente.",
+            "duration_hrs": 4,
+            "category_fk": "uuid-c2",
+            "years_of_experience": 6,
+            "rating": 4.5,
+            "price_range": "$800 - $2000",
+            "image": "../core/images/Electricista.jpg",
+            "professional_name": "Juan González",
+            "schedule": {
+                "monday": {
+                    "start_time": "08:00",
+                    "end_time": "17:00"
+                },
+                "tuesday": {
+                    "start_time": "08:00",
+                    "end_time": "17:00"
+                },
+                "wednesday": {
+                    "start_time": "08:00",
+                    "end_time": "17:00"
+                },
+                "thursday": {
+                    "start_time": "08:00",
+                    "end_time": "17:00"
+                },
+                "friday": {
+                    "start_time": "08:00",
+                    "end_time": "17:00"
+                },
+                "saturday": {
+                    "start_time": null,
+                    "end_time": null
+                },
+                "sunday": {
+                    "start_time": null,
+                    "end_time": null
+                }
+            }
+        },
+        {
+            "id": "uuid-s3",
+            "name": "Muebles a Medida",
+            "description": "Servicio de Carpintero para diseño y construcción de muebles de madera personalizados.",
+            "duration_hrs": 24,
+            "category_fk": "uuid-c3",
+            "years_of_experience": 15,
+            "rating": 4.9,
+            "price_range": "$2000+",
+            "image": "../core/images/Carpintero.jpg",
+            "professional_name": "Ale Calvillo",
+            "schedule": {
+                "monday": {
+                    "start_time": "09:00",
+                    "end_time": "18:00"
+                },
+                "tuesday": {
+                    "start_time": "09:00",
+                    "end_time": "18:00"
+                },
+                "wednesday": {
+                    "start_time": "09:00",
+                    "end_time": "18:00"
+                },
+                "thursday": {
+                    "start_time": "09:00",
+                    "end_time": "18:00"
+                },
+                "friday": {
+                    "start_time": "09:00",
+                    "end_time": "18:00"
+                },
+                "saturday": {
+                    "start_time": null,
+                    "end_time": null
+                },
+                "sunday": {
+                    "start_time": null,
+                    "end_time": null
+                }
+            }
+        }
+    ],
+    "categories": [
+        {
+            "id": "uuid-c1",
+            "name": "Plomeros",
+            "key": "plomeros",
+            "icon": "fa-faucet"
+        },
+        {
+            "id": "uuid-c2",
+            "name": "Electricistas",
+            "key": "electricistas",
+            "icon": "fa-bolt"
+        },
+        {
+            "id": "uuid-c3",
+            "name": "Carpinteros",
+            "key": "carpinteros",
+            "icon": "fa-hammer"
+        },
+        {
+            "id": "uuid-c4",
+            "name": "Cerrajeros",
+            "key": "cerrajeros",
+            "icon": "fa-key"
+        },
+        {
+            "id": "uuid-c5",
+            "name": "Fontaneros",
+            "key": "fontaneros",
+            "icon": "fa-water"
+        },
+        {
+            "id": "uuid-c6",
+            "name": "Pintores",
+            "key": "pintores",
+            "icon": "fa-paint-roller"
+        },
+        {
+            "id": "uuid-c7",
+            "name": "Jardineros",
+            "key": "jardineros",
+            "icon": "fa-leaf"
+        },
+        {
+            "id": "uuid-c8",
+            "name": "Limpieza",
+            "key": "limpieza",
+            "icon": "fa-broom"
+        },
+        {
+            "id": "uuid-c9",
+            "name": "Albañiles",
+            "key": "albañiles",
+            "icon": "fa-trowel"
+        },
+        {
+            "id": "uuid-c10",
+            "name": "Tapiceros",
+            "key": "tapiceros",
+            "icon": "fa-couch"
+        }
+    ],
+    "workers_by_category": {
+        "plomeros": [
+            {
+                "id": "uuid-p1",
+                "nombre": "Roberto Sánchez",
+                "profesion": "Plomero Profesional",
+                "experiencia": 10,
+                "imagen": "../../core/images/Plomero.jpg",
+                "rating": 5.0,
+                "estrellas": 5,
+                "telefono": "+52 33 1234 5678",
+                "email": "roberto.sanchez@example.com",
+                "bio": "Especialista en reparaciones domésticas e industriales con más de 10 años de experiencia.",
+                "ubicacion": "Guadalajara, Jalisco",
+                "reviews": [
+                    {
+                        "user": "María L.",
+                        "comment": "Excelente trabajo, muy limpio y rápido.",
+                        "rating": 5
+                    },
+                    {
+                        "user": "Pedro J.",
+                        "comment": "Llegó puntual y resolvió el problema.",
+                        "rating": 5
+                    }
+                ]
+            },
+            {
+                "id": "uuid-p1b",
+                "nombre": "Ana Martínez",
+                "profesion": "Plomera Certificada",
+                "experiencia": 8,
+                "imagen": "../../core/images/Plomero.jpg",
+                "rating": 4.5,
+                "estrellas": 4.5,
+                "telefono": "+52 33 8765 4321",
+                "email": "ana.martinez@example.com",
+                "bio": "Certificada en instalaciones hidráulicas modernas.",
+                "ubicacion": "Zapopan, Jalisco",
+                "reviews": []
+            }
+        ],
+        "carpinteros": [
+            {
+                "id": "uuid-p3",
+                "nombre": "Ale Calvillo",
+                "profesion": "Carpintero Experto",
+                "experiencia": 15,
+                "imagen": "../../core/images/Carpintero.jpg",
+                "rating": 4.8,
+                "estrellas": 5,
+                "telefono": "+52 33 1111 2222",
+                "email": "ale.calvillo@example.com",
+                "bio": "Maestro carpintero especializado en muebles a medida y restauración.",
+                "ubicacion": "Tlaquepaque, Jalisco",
+                "reviews": []
+            }
+        ],
+        "cerrajeros": [
+            {
+                "id": "uuid-p4",
+                "nombre": "Lla Vero",
+                "profesion": "Cerrajero Master",
+                "experiencia": 12,
+                "imagen": "../../core/images/Cerrajero.jpg",
+                "rating": 4.9,
+                "estrellas": 5,
+                "telefono": "+52 33 3333 4444",
+                "email": "lla.vero@example.com",
+                "bio": "Servicio de cerrajería 24/7. Apertura de autos y casas.",
+                "ubicacion": "Guadalajara, Jalisco",
+                "reviews": []
+            }
+        ],
+        "fontaneros": [
+            {
+                "id": "uuid-p5",
+                "nombre": "Raúl Trump",
+                "profesion": "Fontanero Especialista",
+                "experiencia": 5,
+                "imagen": "../../core/images/Plomero.jpg",
+                "rating": 4.5,
+                "estrellas": 4.5,
+                "telefono": "+52 33 5555 6666",
+                "email": "raul.trump@example.com",
+                "bio": "Instalación y mantenimiento de sistemas de agua.",
+                "ubicacion": "Tonalá, Jalisco",
+                "reviews": []
+            }
+        ],
+        "pintores": [
+            {
+                "id": "uuid-p6",
+                "nombre": "Carlos Ruiz",
+                "profesion": "Pintor Profesional",
+                "experiencia": 8,
+                "imagen": "../../core/images/Pintor.jpeg",
+                "rating": 4.7,
+                "estrellas": 4.5,
+                "telefono": "+52 33 7777 8888",
+                "email": "carlos.ruiz@example.com",
+                "bio": "Pintura interior y exterior, acabados finos.",
+                "ubicacion": "Zapopan, Jalisco",
+                "reviews": []
+            },
+            {
+                "id": "uuid-p7",
+                "nombre": "Cristiano Jesuita",
+                "profesion": "Pintor Profesional",
+                "experiencia": 2,
+                "imagen": "../../core/images/Pintor2.png",
+                "rating": 3.8,
+                "estrellas": 4,
+                "telefono": "+52 33 9999 0000",
+                "email": "cristiano.j@example.com",
+                "bio": "Pintor detallista y rápido.",
+                "ubicacion": "Guadalajara, Jalisco",
+                "reviews": []
+            }
+        ],
+        "electricistas": [
+            {
+                "id": "uuid-p2",
+                "nombre": "Juan González",
+                "profesion": "Electricista Certificado",
+                "experiencia": 6,
+                "imagen": "../../core/images/Electricista.jpg",
+                "rating": 4.0,
+                "estrellas": 4,
+                "telefono": "+52 33 2222 3333",
+                "email": "juan.gonzalez@example.com",
+                "bio": "Instalaciones eléctricas residenciales y comerciales.",
+                "ubicacion": "Guadalajara, Jalisco",
+                "reviews": []
+            },
+            {
+                "id": "uuid-p8",
+                "nombre": "Guillermo Calvillo",
+                "profesion": "Electricista Certificado",
+                "experiencia": 2,
+                "imagen": "../../core/images/Electricista2.png",
+                "rating": 3,
+                "estrellas": 3,
+                "telefono": "+52 33 4444 5555",
+                "email": "guillermo.c@example.com",
+                "bio": "Electricista junior, precios económicos.",
+                "ubicacion": "Zapopan, Jalisco",
+                "reviews": []
+            }
+        ],
+        "jardineros": [
+            {
+                "id": "uuid-p9",
+                "nombre": "Juan Pérez",
+                "profesion": "Jardinero Paisajista",
+                "experiencia": 4,
+                "imagen": "../../core/images/Jardinero.jpg",
+                "rating": 3.5,
+                "estrellas": 3.5,
+                "telefono": "+52 33 6666 7777",
+                "email": "juan.perez@example.com",
+                "bio": "Diseño y mantenimiento de jardines.",
+                "ubicacion": "Tlaquepaque, Jalisco",
+                "reviews": []
+            },
+            {
+                "id": "uuid-p10",
+                "nombre": "Luthe",
+                "profesion": "Jardinero",
+                "experiencia": 1,
+                "imagen": "../../core/images/Jardinero2.png",
+                "rating": 4.5,
+                "estrellas": 4.5,
+                "telefono": "+52 33 8888 9999",
+                "email": "luthe@example.com",
+                "bio": "Jardinería básica y poda.",
+                "ubicacion": "Guadalajara, Jalisco",
+                "reviews": []
+            }
+        ],
+        "limpieza": [
+            {
+                "id": "uuid-p11",
+                "nombre": "Laura Soto",
+                "profesion": "Profesional de Limpieza",
+                "experiencia": 7,
+                "imagen": "../../core/images/Limpieza.png",
+                "rating": 4.8,
+                "estrellas": 5,
+                "telefono": "+52 33 1010 2020",
+                "email": "laura.soto@example.com",
+                "bio": "Limpieza profunda de casas y oficinas.",
+                "ubicacion": "Zapopan, Jalisco",
+                "reviews": []
+            }
+        ],
+        "albañiles": [
+            {
+                "id": "uuid-p12",
+                "nombre": "José García",
+                "profesion": "Maestro Albañil",
+                "experiencia": 20,
+                "imagen": "../../core/images/Albanil.png",
+                "rating": 4.9,
+                "estrellas": 5,
+                "telefono": "+52 33 3030 4040",
+                "email": "jose.garcia@example.com",
+                "bio": "Construcción general, remodelaciones y acabados.",
+                "ubicacion": "Tonalá, Jalisco",
+                "reviews": []
+            }
+        ],
+        "tapiceros": [
+            {
+                "id": "uuid-p13",
+                "nombre": "Patricia López",
+                "profesion": "Tapicera Especialista",
+                "experiencia": 9,
+                "imagen": "../../core/images/Tapicera.png",
+                "rating": 4.6,
+                "estrellas": 4.5,
+                "telefono": "+52 33 5050 6060",
+                "email": "patricia.lopez@example.com",
+                "bio": "Restauración de muebles y tapicería automotriz.",
+                "ubicacion": "Guadalajara, Jalisco",
+                "reviews": []
+            }
+        ]
+    },
+    "history": [
+        {
+            "query": "Plomero",
+            "timestamp": "2024-05-20T10:00:00Z"
+        },
+        {
+            "query": "Electricista urgente",
+            "timestamp": "2024-05-21T14:30:00Z"
+        }
+    ],
+    "professionals": [
+        {
+            "id": "uuid-p1",
+            "name": "Roberto Sánchez",
+            "profession": "Plomero",
+            "experience": 10,
+            "rating": 4.8,
+            "image": "../core/images/Plomero.jpg"
+        },
+        {
+            "id": "uuid-p2",
+            "name": "Juan González",
+            "profession": "Electricista",
+            "experience": 6,
+            "rating": 4.5,
+            "image": "../core/images/Electricista.jpg"
+        },
+        {
+            "id": "uuid-p3",
+            "name": "Ale Calvillo",
+            "profession": "Carpintero",
+            "experience": 15,
+            "rating": 4.9,
+            "image": "../core/images/Carpintero.jpg"
+        }
+    ]
+}

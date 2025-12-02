@@ -6,9 +6,6 @@ const API_CONFIG = {
     mockContractsUrl: '../homeCliente/data/mock_contracts_data.json'
 };
 
-// Estado global para filtros de categorías
-const selectedCategories = new Set();
-
 class SearchService {
     static async getHeaders() {
         // Aquí deberías obtener el token real del almacenamiento
@@ -28,33 +25,15 @@ class SearchService {
 
             // Filtrado básico para mock data
             if (endpoint.includes('search')) {
-                let services = data.services;
                 const query = params.name?.toLowerCase().replace(/"/g, '');
-
-                // Filtrar por texto (nombre, descripción o profesional)
                 if (query) {
-                    services = services.filter(s =>
+                    return data.services.filter(s =>
                         s.name.toLowerCase().includes(query) ||
                         s.description.toLowerCase().includes(query) ||
                         (s.professional_name && s.professional_name.toLowerCase().includes(query))
                     );
                 }
-
-                // Filtrar por categorías seleccionadas
-                if (params.categories) {
-                    const selectedCats = JSON.parse(params.categories);
-                    if (selectedCats.length > 0) {
-                        // Mapear keys de categorías a IDs
-                        const categoryMap = {};
-                        data.categories.forEach(c => categoryMap[c.key] = c.id);
-
-                        const selectedIds = selectedCats.map(key => categoryMap[key]);
-
-                        services = services.filter(s => selectedIds.includes(s.category_fk));
-                    }
-                }
-
-                return services;
+                return data.services;
             }
             if (endpoint.includes('categories')) {
                 return data.categories;
@@ -240,7 +219,9 @@ function renderCategories(categories) {
         const li = document.createElement('li');
         li.innerHTML = `
             <a class="dropdown-item categoria-btn" href="#" 
-               data-categoria="${cat.key || cat.name.toLowerCase()}">
+               data-categoria="${cat.key || cat.name.toLowerCase()}" 
+               data-bs-toggle="modal" 
+               data-bs-target="#serviciosModal">
                <i class="fas ${cat.icon || 'fa-tools'}"></i> ${cat.name}
             </a>
         `;
@@ -255,8 +236,46 @@ function renderCategories(categories) {
     const allCats = document.createElement('li');
     allCats.innerHTML = '<a class="dropdown-item" href="#"><i class="fas fa-th-list"></i> Ver todas las categorías</a>';
     dropdown.appendChild(allCats);
+
+    // Re-attach event listeners for dynamic categories
+    attachCategoryListeners();
 }
 
+function attachCategoryListeners() {
+    const serviciosModal = document.getElementById('serviciosModal');
+    if (serviciosModal) {
+        const modalTitle = serviciosModal.querySelector('.modal-title');
+        const modalCards = document.getElementById('modalCards');
+
+        document.querySelectorAll('.categoria-btn').forEach(button => {
+            button.addEventListener('click', async function () {
+                const categoria = this.getAttribute('data-categoria');
+                const nombreCategoria = this.textContent.trim();
+
+                modalTitle.textContent = `Cargando ${nombreCategoria}...`;
+                modalCards.innerHTML = '<div class="text-center w-100"><i class="fas fa-spinner fa-spin fa-3x"></i></div>';
+
+                try {
+                    const trabajadores = await SearchService.getWorkersByCategory(categoria);
+
+                    modalTitle.textContent = `${nombreCategoria} Disponibles`;
+                    modalCards.innerHTML = '';
+
+                    if (trabajadores.length === 0) {
+                        modalCards.innerHTML = '<div class="alert alert-info w-100">No hay profesionales disponibles en esta categoría por el momento.</div>';
+                    } else {
+                        trabajadores.forEach(trabajador => {
+                            modalCards.innerHTML += generarCardTrabajador(trabajador);
+                        });
+                    }
+                } catch (error) {
+                    console.error('Error loading workers:', error);
+                    modalCards.innerHTML = '<div class="alert alert-danger w-100">Error al cargar profesionales.</div>';
+                }
+            });
+        });
+    }
+}
 
 // Función para cargar contratos desde el archivo mock (citas aceptadas)
 async function fetchAcceptedContracts() {
@@ -510,12 +529,12 @@ document.addEventListener('DOMContentLoaded', function () {
         renderRecomendados(profs);
     });
 
-    // 4. Global event listener for "Ver Perfil" and Category buttons (Filter Logic)
+    // 4. Global event listener for "Ver Perfil" and "Contactar" buttons
     document.body.addEventListener('click', function (e) {
-        // Handle "Ver Perfil" buttons
-        const profileBtn = e.target.closest('.view-profile-btn');
-        if (profileBtn) {
-            const workerJson = profileBtn.getAttribute('data-worker');
+        const button = e.target.closest('.view-profile-btn');
+
+        if (button) {
+            const workerJson = button.getAttribute('data-worker');
             if (workerJson) {
                 try {
                     const workerData = JSON.parse(decodeURIComponent(workerJson));
@@ -525,65 +544,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     console.error('Error parsing worker data:', error);
                 }
             }
-            return;
-        }
-
-        // Handle Category buttons (Filter Toggle)
-        const categoryBtn = e.target.closest('.categoria-btn');
-        if (categoryBtn) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            const categoria = categoryBtn.getAttribute('data-categoria');
-
-            if (selectedCategories.has(categoria)) {
-                selectedCategories.delete(categoria);
-                categoryBtn.classList.remove('active');
-                if (categoryBtn.classList.contains('btn')) {
-                    categoryBtn.classList.remove('btn-primary');
-                    categoryBtn.classList.add('btn-secondary');
-                } else {
-                    // Para dropdown items
-                    categoryBtn.style.backgroundColor = '';
-                    categoryBtn.style.color = '';
-                }
-            } else {
-                selectedCategories.add(categoria);
-                categoryBtn.classList.add('active');
-                if (categoryBtn.classList.contains('btn')) {
-                    categoryBtn.classList.remove('btn-secondary');
-                    categoryBtn.classList.add('btn-primary');
-                } else {
-                    // Para dropdown items - fondo azul
-                    categoryBtn.style.backgroundColor = '#0d6efd';
-                    categoryBtn.style.color = 'white';
-                }
-            }
-
-            // Sync all buttons with same category
-            document.querySelectorAll(`.categoria-btn[data-categoria="${categoria}"]`).forEach(btn => {
-                if (selectedCategories.has(categoria)) {
-                    btn.classList.add('active');
-                    if (btn.classList.contains('btn')) {
-                        btn.classList.remove('btn-secondary');
-                        btn.classList.add('btn-primary');
-                    } else {
-                        // Para dropdown items
-                        btn.style.backgroundColor = '#0d6efd';
-                        btn.style.color = 'white';
-                    }
-                } else {
-                    btn.classList.remove('active');
-                    if (btn.classList.contains('btn')) {
-                        btn.classList.remove('btn-primary');
-                        btn.classList.add('btn-secondary');
-                    } else {
-                        // Para dropdown items
-                        btn.style.backgroundColor = '';
-                        btn.style.color = '';
-                    }
-                }
-            });
         }
     });
 
@@ -602,12 +562,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     async function performSearch() {
         const query = searchInput.value.trim();
-        const categories = Array.from(selectedCategories);
 
         try {
             if (resultsContainer) resultsContainer.style.opacity = '0.5';
-            // Pass selected categories to search
-            const results = await SearchService.searchServices(query, 'n', categories);
+            const results = await SearchService.searchServices(query);
             renderSearchResults(results);
             if (resultsContainer) resultsContainer.style.opacity = '1';
         } catch (error) {

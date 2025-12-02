@@ -133,7 +133,8 @@ main.auth {
 }
 
 /* Contenedor del calendario en home */
-#DivCalendario {
+#DivCalendario,
+#DivCitasPasadas {
   width: 100%;
   height: auto;
   justify-content: center;
@@ -643,6 +644,7 @@ main.auth {
 #CuadroChat {
   width: 100%;
 }
+
 /* ======================================
    VERIFICACION DE EMAIL
    ====================================== */
@@ -694,7 +696,8 @@ main.auth {
   gap: 15px;
 }
 
-.verifybtn, .resendbtn {
+.verifybtn,
+.resendbtn {
   padding: 12px;
   border-radius: 12px;
   border: none;
@@ -722,4 +725,3 @@ main.auth {
 .resendbtn:hover {
   background-color: #f0f0f0;
 }
-

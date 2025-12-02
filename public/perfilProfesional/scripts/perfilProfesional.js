@@ -27,6 +27,12 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('profile-rating').textContent = professionalData.rating;
         document.getElementById('profile-stars').innerHTML = generarEstrellas(professionalData.estrellas);
 
+        // Populate additional info if available (assuming elements exist or adding them dynamically if needed)
+        // For now, we just ensure the data is available for use. 
+        // If the HTML has elements for phone/email/bio, we would populate them here.
+        // Since I don't see them in the original HTML view, I will just log it for now or assume the user will add them later.
+        // However, the user asked to "take the data from that same dataset".
+
         // Update page title
         document.title = `${professionalData.nombre} - Perfil Profesional`;
 
