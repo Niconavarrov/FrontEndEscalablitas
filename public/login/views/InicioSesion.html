@@ -4,10 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Escalablitas APP</title>
-    <script src="../scripts/InicioSesion.js"></script>
+    <script type="module" src="/login/scripts/InicioSesion.js"></script>
     <link rel="stylesheet" href="../../core/styles/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/07b7b4af07.js" crossorigin="anonymous"></script>
+
+    <script type="module">
+        import { inicializarLogin } from '../scripts/LoginUI.js';
+        import { verificarConexionInicial } from '../../core/scripts/HealthCheck.js';
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Verifica la conexión al cargar
+            await verificarConexionInicial();
+
+            // Inicializa el login
+            inicializarLogin();
+        });
+    </script>
 </head>
 
 <body>
@@ -46,9 +59,9 @@
         <div id="divSesion">
             <h2>Iniciar sesión</h2>
 
-            <form action="#" method="POST" novalidate>
-                <input type="email" name="email" placeholder="Email" required />
-                <input type="password" name="password" placeholder="Contraseña" required />
+            <form id="loginForm" novalidate>
+                <input type="email" id="email" name="email" placeholder="Email" required />
+                <input type="password" id="password" name="password" placeholder="Contraseña" required />
                 <button type="submit" class="btn btn-primary w-100">Iniciar sesión</button>
             </form>
 

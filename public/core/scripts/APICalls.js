@@ -1,7 +1,46 @@
-// Configuración de API
-const API_CONFIG = {
-    baseUrl: 'http://localhost:3000/api'
-};
+import API_CONFIG from '../../config/apiConfig.js';
+
+/**
+ * Login del usuario
+ */
+export async function login(email, password) {
+    try {
+        const response = await fetch(`${API_CONFIG.AUTH_SERVICE}/login`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: email,
+                password: password
+            }),
+            // Si el backend usa cookies para autenticación
+            credentials: 'include'
+        });
+
+        // Si hay problema de CORS, el fetch falla antes de llegar aquí
+        if (!response.ok) {
+            const error = await response.json();
+            throw new Error(error.message || 'Error en el login');
+        }
+
+        const data = await response.json();
+        return data;
+
+    } catch (error) {
+        // Error específico para problemas de red/CORS
+        if (error.message === 'Failed to fetch') {
+            console.error('❌ Error de conexión: Verifica que el backend esté corriendo en localhost:3001');
+            console.error('❌ O verifica que CORS esté configurado correctamente');
+            throw new Error('No se pudo conectar con el servidor. Verifica tu conexión.');
+        }
+
+        console.error('Error en login:', error);
+        throw error;
+    }
+}
+
+
 
 /**
  * Función genérica para hacer llamadas a la API
@@ -65,7 +104,4 @@ async function fetchData(endpoint, body = {}, headers = {}, method = 'GET') {
     }
 }
 
-// Exportar para uso en otros archivos si se usa módulos
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { fetchData, API_CONFIG };
-}
+export { fetchData, API_CONFIG };
